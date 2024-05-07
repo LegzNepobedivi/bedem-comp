@@ -22,7 +22,7 @@ export async function getAgentByStanId(input_id) {
     return error;
   } else {
     revalidatePath("/nekretnine");
-    revalidatePath(`/nekretnine/${input_id}`);
+    revalidatePath(`/nekretnine`);
     return data;
   }
 }

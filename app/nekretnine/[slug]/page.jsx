@@ -20,21 +20,21 @@ import {
 } from "@/components/ui/dialog";
 import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
 
-import { getAllStan, getStanById } from "@/app/_actions/klijentAkcije/stanovi";
+import { getAllStan, getStanById } from "../../_actions/klijentAkcije/stanovi";
 import {
   getAgentByStanId,
   getAllAgents,
-} from "@/app/_actions/klijentAkcije/agenti";
+} from "../../_actions/klijentAkcije/agenti";
 
 export default async function PrikazNekretnine({ params }) {
   let idStana = params.slug;
   let stanDetails;
   let allAgents;
 
-  allAgents = await getAgentByStanId(idStana);
+  allAgents = await getAgentByStanId(1);
   stanDetails = await getStanById(idStana);
   console.log(allAgents);
-  //console.log(stanDetails);
+  console.log(stanDetails);
 
   // {
   //   ("use server");
