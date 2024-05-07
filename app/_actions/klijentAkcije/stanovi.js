@@ -8,7 +8,6 @@ export async function getAllStan() {
   let { data, error } = await supabase.rpc("stan_get_all");
   if (error) return error;
   else {
-    revalidatePath("/nekretnine");
     return data;
   }
 }
@@ -21,7 +20,6 @@ export async function getFirstSlikaByStanId(input_id) {
 
   if (error) return error;
   else {
-    revalidatePath("/nekretnine");
     return data;
   }
 }
