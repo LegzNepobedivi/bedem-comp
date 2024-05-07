@@ -1,5 +1,3 @@
-"use client";
-
 import LeftArrowSvg from "@/components/svgComp/LeftArrowSvg";
 import PhoneSvg from "@/components/svgComp/PhoneSvg";
 import AgentSvg from "@/components/svgComp/AgentSvg";
@@ -22,13 +20,33 @@ import {
 } from "@/components/ui/dialog";
 import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
 
-import { usePathname } from "next/navigation";
+import { getAllStan, getStanById } from "@/app/_actions/klijentAkcije/stanovi";
+import {
+  getAgentByStanId,
+  getAllAgents,
+} from "@/app/_actions/klijentAkcije/agenti";
 
-const stanDetails = await getStanById(45);
+export default async function PrikazNekretnine({ params }) {
+  let idStana = params.slug;
+  let stanDetails;
+  let allAgents;
 
-export default function PrikazNekretnine() {
-  const pathname = usePathname();
-  console.log(pathname);
+  allAgents = await getAgentByStanId(idStana);
+  stanDetails = await getStanById(idStana);
+  console.log(allAgents);
+  //console.log(stanDetails);
+
+  // {
+  //   ("use server");
+  //   let stanDetails = await getStanById(idStana);
+  //   const agentDetails = await getAgentByStanId(1);
+
+  //   console.log(agentDetails);
+  // }
+  const priceFormatted =
+    stanDetails[0].price
+      .toLocaleString("en-US", { style: "currency", currency: "USD" })
+      .replace("$", "") + " €";
 
   return (
     <div className="bg-white">
@@ -45,7 +63,7 @@ export default function PrikazNekretnine() {
         </div>
         <div className="py-2 px-4">
           <div className="ivanZelena text-2xl font-semibold mb-3">
-            Šumatovačka 116, Vračar, Beograd
+            {stanDetails[0].title}
           </div>
           <div className="grid grid-cols-2 md:grid-cols-6 xl:grid-cols-8 gap-0 mx-auto font-medium">
             <div className="">
@@ -54,7 +72,7 @@ export default function PrikazNekretnine() {
               >
                 Cena
               </div>
-              <div className="text-black">€ 450.000</div>
+              <div className="text-black">{priceFormatted}</div>
             </div>
             <div className="">
               <div
@@ -62,7 +80,7 @@ export default function PrikazNekretnine() {
               >
                 Površina
               </div>
-              <div className="text-black">150 m2</div>
+              <div className="text-black">{stanDetails[0].size} m2</div>
             </div>
             <div className="">
               <div
@@ -70,7 +88,9 @@ export default function PrikazNekretnine() {
               >
                 Struktura
               </div>
-              <div className="text-black">Četvorosoban</div>
+              <div className="text-black">
+                {stanDetails[0].numberOfRooms} soban
+              </div>
             </div>
             <div className="">
               <div
