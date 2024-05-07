@@ -17,8 +17,6 @@ export default async function NekretninePage() {
           <Pretraga />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 container mx-auto">
-          <Kartica showLink="/nekretnine/1" sourceUrl="/images/slika1.jpg" />
-
           {sviStanovi.map(async (stan) => {
             const firstSlika = await getFirstSlikaByStanId(stan.id);
             return (
