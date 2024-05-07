@@ -1,5 +1,4 @@
 import supabase from "@/lib/supabase";
-import { revalidatePath } from "next/cache";
 
 export async function createSlika(n_sorting_id, n_stan_id, n_token, n_url) {
   "use server";

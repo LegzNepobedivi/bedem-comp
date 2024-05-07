@@ -1,5 +1,4 @@
 import supabase from "@/lib/supabase";
-import { revalidatePath } from "next/cache";
 
 export async function connectStanToObject(stan_id_arg, objekat_id_arg) {
   "use server";

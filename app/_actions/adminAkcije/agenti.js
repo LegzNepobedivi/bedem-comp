@@ -1,5 +1,4 @@
 import supabase from "@/lib/supabase";
-import { revalidatePath } from "next/cache";
 
 export async function createAgent(n_mail, n_name, n_position, n_telephone) {
   "use server";
@@ -13,7 +12,6 @@ export async function createAgent(n_mail, n_name, n_position, n_telephone) {
 
   if (error) return error;
   else {
-    revalidatePath("/nas-tim");
     return data;
   }
 }
@@ -57,7 +55,6 @@ export async function updateAgent(
   });
   if (error) return error;
   else {
-    revalidatePath("/nas-tim");
     return data;
   }
 }
@@ -71,7 +68,6 @@ export async function deleteAgent(input_id) {
 
   if (error) return error;
   else {
-    revalidatePath("/nas-tim");
     return data;
   }
 }
@@ -84,7 +80,6 @@ export async function disconnectAgentFromStan(d_agent_id, d_stan_id) {
   });
   if (error) return error;
   else {
-    revalidatePath("/nas-tim");
     return data;
   }
 }

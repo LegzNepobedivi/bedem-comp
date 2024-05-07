@@ -1,5 +1,4 @@
 import supabase from "@/lib/supabase";
-import { revalidatePath } from "next/cache";
 
 //Stanovi
 export async function getAllStan() {
