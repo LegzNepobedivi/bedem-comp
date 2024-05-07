@@ -1,7 +1,7 @@
-"use client";
+//"use client";
 
 import React from "react";
-import { CldImage } from "next-cloudinary";
+//import { CldImage } from "next-cloudinary";
 import { DataTable } from "@/components/adminpage/payments/data-table";
 import { columns } from "@/components/adminpage/payments/columns";
 

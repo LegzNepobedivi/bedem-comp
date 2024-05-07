@@ -8,7 +8,6 @@ export async function getAllAgents() {
   let { data, error } = await supabase.rpc("agent_get_all");
   if (error) return error;
   else {
-    revalidatePath("/nas-tim");
     return data;
   }
 }
@@ -21,8 +20,6 @@ export async function getAgentByStanId(input_id) {
   if (error) {
     return error;
   } else {
-    revalidatePath("/nekretnine");
-    revalidatePath(`/nekretnine`);
     return data;
   }
 }
