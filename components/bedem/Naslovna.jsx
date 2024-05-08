@@ -9,7 +9,11 @@ import { TextParallaxContentWhole } from "../foreign/TextParallaxContent";
 export default function Naslovna() {
   return (
     <div className="bg-white">
-      <TextParallaxContentWhole />
+      <TextParallaxContentWhole
+        imgUrl="/images/backPhoto.jpg"
+        subheading="Bedem nekretnine"
+        heading="Sa nama ste bezbedni."
+      />
 
       <div className="container mx-auto">
         <div className="ivanZelena text-3xl font-medium pl-6 pt-6">

@@ -1,4 +1,4 @@
-import { login, signup } from "./actions";
+import { login } from "./actions";
 import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
@@ -30,12 +30,12 @@ export default function LoginPage() {
             Log in
           </button>
 
-          <button
+          {/* <button
             className="bg-green-900 py-1 px-2 rounded-lg hover:bg-green-800 hover:text-slate-50"
-            formAction={signup}
+            formAction={signout}
           >
-            Sign up
-          </button>
+            Sign Out
+          </button> */}
         </div>
       </form>
     </div>

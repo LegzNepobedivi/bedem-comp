@@ -45,7 +45,7 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
-export const SwipeCarousel = () => {
+export const SwipeCarousel = ({ slike }) => {
   const [imgIndex, setImgIndex] = useState(0);
 
   const dragX = useMotionValue(0);
@@ -56,7 +56,7 @@ export const SwipeCarousel = () => {
 
       if (x === 0) {
         setImgIndex((pv) => {
-          if (pv === imgs.length - 1) {
+          if (pv === slike.length - 1) {
             return 0;
           }
           return pv + 1;
@@ -70,7 +70,7 @@ export const SwipeCarousel = () => {
   const onDragEnd = () => {
     const x = dragX.get();
 
-    if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
+    if (x <= -DRAG_BUFFER && imgIndex < slike.length - 1) {
       setImgIndex((pv) => pv + 1);
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
       setImgIndex((pv) => pv - 1);
@@ -95,24 +95,24 @@ export const SwipeCarousel = () => {
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        <Images imgIndex={imgIndex} />
+        <Images imgIndex={imgIndex} slike={slike} />
       </motion.div>
 
-      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
+      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} slike={slike} />
       {/* <GradientEdges /> */}
     </div>
   );
 };
 
-const Images = ({ imgIndex }) => {
+const Images = ({ imgIndex, slike }) => {
   return (
     <>
-      {imgs.map((imgSrc, idx) => {
+      {slike.map((slika, idx) => {
         return (
           <motion.div
             key={idx}
             style={{
-              backgroundImage: `url(${imgSrc})`,
+              backgroundImage: `url(${slika.url})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -128,10 +128,10 @@ const Images = ({ imgIndex }) => {
   );
 };
 
-const Dots = ({ imgIndex, setImgIndex }) => {
+const Dots = ({ imgIndex, setImgIndex, slike }) => {
   return (
     <div className="mt-4 flex w-full justify-center gap-2 flex-wrap">
-      {imgs.map((_, idx) => {
+      {slike.map((_, idx) => {
         return (
           <button
             key={idx}

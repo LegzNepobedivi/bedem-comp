@@ -1,8 +1,8 @@
+"use server";
+
 import supabase from "@/lib/supabase";
 
 export async function createProjekat() {
-  "use server";
-
   let { data, error } = await supabase.rpc("projekat_create", {
     n_description,
     n_name,
@@ -15,8 +15,6 @@ export async function createProjekat() {
 }
 
 export async function deleteProjekat(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("projekat_delete", {
     input_id,
   });
@@ -27,8 +25,6 @@ export async function deleteProjekat(input_id) {
 }
 
 export async function getAllProjekti() {
-  "use server";
-
   let { data, error } = await supabase.rpc("projekat_get_all");
   if (error) return error;
   else {
@@ -37,8 +33,6 @@ export async function getAllProjekti() {
 }
 
 export async function getProjekatById(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("projekat_get_by_id", {
     input_id,
   });
@@ -54,8 +48,6 @@ export async function updateProjekat(
   n_name,
   n_sorting_id
 ) {
-  "use server";
-
   let { data, error } = await supabase.rpc("projekat_update", {
     input_id,
     n_desription,

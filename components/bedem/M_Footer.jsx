@@ -26,7 +26,7 @@ const M_Footer = () => {
           {/* Poslovni podaci */}
           <div className="md:text-sm text-xs text-center flex flex-col gap-2 border-r border-gray-400">
             <p className="ivanZelena font-bold text-xl">Poslovni podaci</p>
-            <p>Nehruova 51, 11070 Beograd, Srbija</p>
+            <p>Dalmatinska 10a, Novi Banovci</p>
             <Link href="tel:+381 63 445 079">
               +381 63 445 079 - korisnicki servis
             </Link>

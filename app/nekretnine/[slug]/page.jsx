@@ -21,28 +21,26 @@ import {
 import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
 
 import { getAllStan, getStanById } from "../../_actions/klijentAkcije/stanovi";
-import {
-  getAgentByStanId,
-  getAllAgents,
-} from "../../_actions/klijentAkcije/agenti";
+import { getAgentByStanId } from "../../_actions/klijentAkcije/agenti";
+import PrikazSvihStanova from "@/components/bedem/PrikazSvihStanova";
+import { getAllSlikeByStanId } from "@/app/_actions/adminAkcije/slika";
+
+//generate all the static paths/dynamic routes
+export async function generateStaticParams() {
+  const stanovi = await getAllStan();
+
+  return stanovi.map((stan) => ({
+    slug: String(stan.id),
+  }));
+}
 
 export default async function PrikazNekretnine({ params }) {
   let idStana = params.slug;
-  let stanDetails;
-  let allAgents;
 
-  allAgents = await getAgentByStanId(1);
-  stanDetails = await getStanById(idStana);
-  console.log(allAgents);
-  console.log(stanDetails);
+  let agent = await getAgentByStanId(idStana);
+  let slike = await getAllSlikeByStanId(idStana);
+  let stanDetails = await getStanById(idStana);
 
-  // {
-  //   ("use server");
-  //   let stanDetails = await getStanById(idStana);
-  //   const agentDetails = await getAgentByStanId(1);
-
-  //   console.log(agentDetails);
-  // }
   const priceFormatted =
     stanDetails[0].price
       .toLocaleString("en-US", { style: "currency", currency: "USD" })
@@ -108,13 +106,16 @@ export default async function PrikazNekretnine({ params }) {
           </div>
           <div className="px-2">
             <div className="text-base ivanZelena font-semibold">
-              Agent: Marko +381 69 123 4567
+              Agent: {agent[0].name} {agent[0].telephone}
             </div>
             <div className="flex ivanZelena border-2 border-green-950 w-fit">
               <PhoneSvg />
-              <button className="bg-green-950 uppercase text-white text-sm py-1 px-2">
+              <Link
+                href={`tel:${agent[0].telephone}`}
+                className="bg-green-950 uppercase text-white text-sm py-1 px-2 hover:bg-green-900"
+              >
                 Pozovi
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -130,12 +131,12 @@ export default async function PrikazNekretnine({ params }) {
             <DialogHeader>
               {/* <DialogTitle>Are you absolutely sure?</DialogTitle> */}
               <DialogDescription>
-                <Image src="/images/slika1.jpg" height={300} width={700} />
+                <PrikazSvihStanova slike={slike} />
               </DialogDescription>
             </DialogHeader>
           </DialogContent>
         </Dialog>
-        <SwipeCarousel />
+        <SwipeCarousel slike={slike} />
       </div>
       <div>
         <div className="p-2 ivanZelena text-center ">
@@ -174,10 +175,7 @@ export default async function PrikazNekretnine({ params }) {
               <p className="text-center text-4xl">Opis</p>
               <div className="border-t border-gray-600 my-4"></div>
               <p className="text-center ivanSiva font-thin">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae s
-                voluptatum, quas, quos quod, quibusdam autem doloremque
-                voluptates tempora quia quidem aperiam. Quisquam, quidem.
-                Quisquam, quidem.
+                {stanDetails[0].description}
               </p>
             </div>
           </div>

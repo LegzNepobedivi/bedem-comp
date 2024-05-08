@@ -5,6 +5,15 @@ import { object } from "zod";
 import { poppins } from "@/app/layout";
 import Objekat from "@/components/bedem/Objekat";
 
+//generate all the static paths/dynamic routes
+// export async function generateStaticParams() {
+//   const stanovi = await getAllStan();
+
+//   return stanovi.map((stan) => ({
+//     slug: String(stan.id),
+//   }));
+// }
+
 function ProjekatJedan() {
   return (
     <>

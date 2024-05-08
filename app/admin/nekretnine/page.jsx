@@ -4,6 +4,7 @@ import React from "react";
 //import { CldImage } from "next-cloudinary";
 import { DataTable } from "@/components/adminpage/payments/data-table";
 import { columns } from "@/components/adminpage/payments/columns";
+import { getAllStanovi } from "@/app/_actions/adminAkcije/stanovi";
 
 const data = [
   {
@@ -80,13 +81,16 @@ const data = [
   },
 ];
 
+let data2 = await getAllStanovi();
+
 function NekretnineAdmin() {
+  console.log(data2);
   return (
     <>
       <div className="mb-3">Uredjivanje nekretnina</div>
       {/* <CldImage src="YelpCamp/msbqgzubbeyrjfncbzds" width={460} height={600} /> */}
       <div>
-        <DataTable data={data} columns={columns} />
+        <DataTable data={data2} columns={columns} />
       </div>
       <></>
     </>

@@ -4,15 +4,22 @@ import Link from "next/link";
 
 import ProjekatLevi from "@/components/bedem/ProjekatLevi";
 import ProjekatDesni from "@/components/bedem/ProjekatDesni";
+import { TextParallaxContentWhole } from "@/components/foreign/TextParallaxContent";
 
 function Projekti() {
   return (
     <div className="bg-white">
-      <div className="bg-[url('/images/slika1.jpg')] text-center">
+      {/* <div className="bg-[url('/images/slika1.jpg')] text-center">
         <div className="p-10 py-24">
           <div className="text-center text-5xl">Projekti</div>
         </div>
-      </div>
+      </div> */}
+      <TextParallaxContentWhole
+        imgUrl="/images/backPhoto.jpg"
+        subheading="Bedem nekretnine"
+        heading="Projekti"
+        hasButton={false}
+      />
       <div className="flex flex-col gap-2">
         <ProjekatLevi />
         <ProjekatDesni />

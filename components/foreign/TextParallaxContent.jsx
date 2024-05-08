@@ -11,15 +11,22 @@ export const poppins = Poppins({
   subsets: ["latin"],
 });
 
-export const TextParallaxContentWhole = () => {
+export const TextParallaxContentWhole = ({
+  imgUrl,
+  subheading,
+  heading,
+  children,
+  hasButton = true,
+}) => {
   return (
     <div className="bg-white">
       <TextParallaxContent
-        imgUrl="/images/backPhoto.jpg"
-        subheading="Bedem nekretnine"
-        heading="Sa nama ste bezbedni."
+        imgUrl={imgUrl}
+        subheading={subheading}
+        heading={heading}
+        hasButton={hasButton}
       >
-        {/* <ExampleContent /> */}
+        {children}
       </TextParallaxContent>
       {/* <TextParallaxContent
         imgUrl="https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -41,7 +48,13 @@ export const TextParallaxContentWhole = () => {
 
 const IMG_PADDING = 6;
 
-const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
+const TextParallaxContent = ({
+  imgUrl,
+  subheading,
+  heading,
+  children,
+  hasButton,
+}) => {
   return (
     <div
       style={{
@@ -51,7 +64,11 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, children }) => {
     >
       <div className="relative h-[150vh]">
         <StickyImage imgUrl={imgUrl} />
-        <OverlayCopy heading={heading} subheading={subheading} />
+        <OverlayCopy
+          heading={heading}
+          subheading={subheading}
+          hasButton={hasButton}
+        />
       </div>
       {children}
     </div>
@@ -91,7 +108,7 @@ const StickyImage = ({ imgUrl }) => {
   );
 };
 
-const OverlayCopy = ({ subheading, heading }) => {
+const OverlayCopy = ({ subheading, heading, hasButton }) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -117,36 +134,40 @@ const OverlayCopy = ({ subheading, heading }) => {
       <div
         className={`${poppins.className} grid grid-cols-2 justify-items-center uppercase mt-10`}
       >
-        <div className="bg-yellow-500 py-1 px-2 border-[1px] border-yellow-500 hover:bg-inherit">
-          <Link href="/nekretnine">Nekretnine</Link>
-        </div>
-        <div className="py-1 px-2 border-[1px] border-yellow-500 hover:bg-yellow-500">
-          <Link href="/nas-tim">O nama</Link>
-        </div>
+        {hasButton && (
+          <>
+            <div className="bg-yellow-500 py-1 px-2 border-[1px] border-yellow-500 hover:bg-inherit">
+              <Link href="/nekretnine">Nekretnine</Link>
+            </div>
+            <div className="py-1 px-2 border-[1px] border-yellow-500 hover:bg-yellow-500">
+              <Link href="/nas-tim">O nama</Link>
+            </div>
+          </>
+        )}
       </div>
     </motion.div>
   );
 };
 
-const ExampleContent = () => (
-  <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
-    <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-yellow-500">
-      Additional content explaining the above card here
-    </h2>
-    <div className="col-span-1 md:col-span-8">
-      <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
-        blanditiis soluta eius quam modi aliquam quaerat odit deleniti minima
-        maiores voluptate est ut saepe accusantium maxime doloremque nulla
-        consectetur possimus.
-      </p>
-      <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
-        reiciendis blanditiis aliquam aut fugit sint.
-      </p>
-      <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
-        Learn more <FiArrowUpRight className="inline" />
-      </button>
-    </div>
-  </div>
-);
+// const ExampleContent = () => (
+//   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
+//     <h2 className="col-span-1 text-3xl font-bold md:col-span-4 text-yellow-500">
+//       Additional content explaining the above card here
+//     </h2>
+//     <div className="col-span-1 md:col-span-8">
+//       <p className="mb-4 text-xl text-neutral-600 md:text-2xl">
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi,
+//         blanditiis soluta eius quam modi aliquam quaerat odit deleniti minima
+//         maiores voluptate est ut saepe accusantium maxime doloremque nulla
+//         consectetur possimus.
+//       </p>
+//       <p className="mb-8 text-xl text-neutral-600 md:text-2xl">
+//         Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium
+//         reiciendis blanditiis aliquam aut fugit sint.
+//       </p>
+//       <button className="w-full rounded bg-neutral-900 px-9 py-4 text-xl text-white transition-colors hover:bg-neutral-700 md:w-fit">
+//         Learn more <FiArrowUpRight className="inline" />
+//       </button>
+//     </div>
+//   </div>
+// );

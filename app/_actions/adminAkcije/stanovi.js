@@ -1,7 +1,8 @@
+"use server";
+
 import supabase from "@/lib/supabase";
 
 export async function connectStanToObject(stan_id_arg, objekat_id_arg) {
-  "use server";
   let { data, error } = await supabase.rpc("connect_stan_to_object", {
     objekat_id_arg,
     stan_id_arg,
@@ -26,8 +27,6 @@ export async function createStanAndConnectToObject(
   n_ytlink,
   objekat_id_arg
 ) {
-  "use server";
-
   let { data, error } = await supabase.rpc(
     "create_stan_and_connect_to_object",
     {
@@ -66,8 +65,6 @@ export async function createStanAndConnectToObjectAndAgent(
   n_ytlink,
   objekat_id_arg
 ) {
-  "use server";
-
   let { data, error } = await supabase.rpc(
     "create_stan_and_connect_to_object_and_agent",
     {
@@ -93,8 +90,6 @@ export async function createStanAndConnectToObjectAndAgent(
 }
 
 export async function createStan() {
-  "use server";
-
   let { data, error } = await supabase.rpc("stan_create", {
     n_description,
     n_floor,
@@ -115,8 +110,6 @@ export async function createStan() {
 }
 
 export async function updateStan() {
-  "use server";
-
   let { data, error } = await supabase.rpc("stan_update", {
     input_id,
     n_description,
@@ -138,8 +131,6 @@ export async function updateStan() {
 }
 
 export async function deleteStan(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("stan_delete", {
     input_id,
   });
@@ -151,8 +142,6 @@ export async function deleteStan(input_id) {
 }
 
 export async function getAllStanovi() {
-  "use server";
-
   let { data, error } = await supabase.rpc("stan_get_all");
 
   if (error) return error;
@@ -162,8 +151,6 @@ export async function getAllStanovi() {
 }
 
 export async function getStanById(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("stan_get_by_id", {
     input_id,
   });

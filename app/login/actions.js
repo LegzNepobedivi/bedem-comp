@@ -37,6 +37,15 @@ export async function signup(formData) {
     redirect("/error");
   }
 
-  revalidatePath("/", "layout");
-  redirect("/");
+  revalidatePath("/admin", "layout");
+  redirect("/admin");
+}
+
+export async function logout() {
+  const supabase = createClient();
+
+  await supabase.auth.signOut();
+
+  revalidatePath("/login", "layout");
+  redirect("/login");
 }

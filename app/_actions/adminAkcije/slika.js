@@ -1,7 +1,8 @@
+"use server";
+
 import supabase from "@/lib/supabase";
 
 export async function createSlika(n_sorting_id, n_stan_id, n_token, n_url) {
-  "use server";
   let { data, error } = await supabase.rpc("slika_create", {
     n_sorting_id,
     n_stan_id,
@@ -15,8 +16,6 @@ export async function createSlika(n_sorting_id, n_stan_id, n_token, n_url) {
 }
 
 export async function deleteSlika(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("slika_delete", {
     input_id,
   });
@@ -33,8 +32,6 @@ export async function updateSlika(
   n_token,
   n_url
 ) {
-  "use server";
-
   let { data, error } = await supabase.rpc("slika_update", {
     input_id,
     n_sorting_id,
@@ -49,8 +46,6 @@ export async function updateSlika(
 }
 
 export async function getAllSlikeByStanId(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("slike_get_by_stan_id", {
     input_id,
   });
@@ -61,8 +56,6 @@ export async function getAllSlikeByStanId(input_id) {
 }
 
 export async function getFirstSlikaByStanId(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("slike_get_first_by_stan_id", {
     input_id,
   });

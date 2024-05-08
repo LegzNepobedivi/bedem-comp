@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { poppins } from "@/app/layout";
+import SlikaIzdvajamo from "./SlikaIzdvajamo";
 
 export default function Izdvajamo({}) {
   return (
@@ -10,31 +11,15 @@ export default function Izdvajamo({}) {
         Izdvajamo
       </div>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-3">
-        <div className="relative h-80">
-          <Image
-            src="/images/slika1.jpg"
-            alt="Picture of real estate"
-            fill
-            style={{ objectFit: "cover" }}
-          />
-          <div className="absolute mx-3 mt-[17rem] text-2xl">
-            Sokobanja - Sokonova
-          </div>
-        </div>
-        <div className="relative h-80">
-          <Image
-            src="/images/slika1.jpg"
-            alt="Picture of real estate"
-            style={{ objectFit: "cover" }}
-            fill
-          />
-          <div className="absolute mx-3 mt-[17rem] text-2xl">
-            Novi Banovci - Balkanska trilogija
-          </div>
-        </div>
+        <Link href="/projekti/1">
+          <SlikaIzdvajamo />
+        </Link>
+        <Link href="/projekti/2">
+          <SlikaIzdvajamo />
+        </Link>
       </div>
       <div className={`${poppins.className} text-center mt-5 uppercase`}>
-        <Link className="py-1 px-2 bgIvanZelena" href="/nekretnine">
+        <Link className="py-1 px-2 bgIvanZelena" href="/projekti">
           Prikaži sve
         </Link>
       </div>

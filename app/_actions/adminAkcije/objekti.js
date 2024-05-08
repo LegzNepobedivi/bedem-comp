@@ -1,3 +1,5 @@
+"use server";
+
 import supabase from "@/lib/supabase";
 
 export async function createObjekat(
@@ -7,8 +9,6 @@ export async function createObjekat(
   n_projekat_id,
   n_sorting_id
 ) {
-  "use server";
-
   let { data, error } = await supabase.rpc("objekat_create", {
     n_description,
     n_id,
@@ -23,8 +23,6 @@ export async function createObjekat(
 }
 
 export async function getAllObjects() {
-  "use server";
-
   let { data, error } = await supabase.rpc("objekat_get_all");
   if (error) return error;
   else {
@@ -33,8 +31,6 @@ export async function getAllObjects() {
 }
 
 export async function getObjectById(input_id) {
-  "use server";
-
   let { data, error } = await supabase.rpc("objekat_get_by_id", {
     input_id,
   });
@@ -51,8 +47,6 @@ export async function updateObjekat(
   n_projekat_id,
   n_sorting_id
 ) {
-  "use server";
-
   let { data, error } = await supabase.rpc("objekat_update", {
     input_id,
     n_description,
