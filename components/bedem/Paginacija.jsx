@@ -23,7 +23,7 @@ function Paginacija({ hasNextPage, hasPrevPage }) {
   console.log("per_page", per_page);
 
   return (
-    <div>
+    <React.Suspense>
       <Pagination className="bg-white">
         <PaginationContent className="">
           <PaginationItem className="">
@@ -79,7 +79,7 @@ function Paginacija({ hasNextPage, hasPrevPage }) {
           </PaginationItem>
         </PaginationContent>
       </Pagination>
-    </div>
+    </React.Suspense>
   );
 }
 
