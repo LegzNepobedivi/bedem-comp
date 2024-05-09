@@ -1,7 +1,6 @@
 "use client";
 
 import { Poppins } from "next/font/google";
-import { useRouter, useSearchParams } from "next/navigation";
 
 import DropdownButton from "./DropdownButton";
 import InputSearch from "./InputSearch";
@@ -14,9 +13,6 @@ const poppins = Poppins({
 });
 
 export default function Pretraga() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-
   return (
     <div className="bg-white ">
       <div className="p-6 flex flex-col gap-2 border-solid border-green-600 ivanZelena focus:border-0">
