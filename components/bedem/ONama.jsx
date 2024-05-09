@@ -20,17 +20,17 @@ export default function ONama() {
           vašim željama i potrebama.
         </p>
         <div className="border-t border-gray-600 my-1"></div>
-        <div className="flex flex-col ivanSiva">
-          <div className="flex justify-center">
+        <div className="flex flex-col ivanSiva text-center">
+          <div className=" ">
             Profesionalizam i ekspertiza: Naši agenti su visoko kvalifikovani i
             neprestano se usavršavaju kako bi vam pružili najbolju moguću
             uslugu.
           </div>
-          <div className="flex justify-center">
-            Poznavanje tržišta: Duboko smo ukorenjeni u [grad/region] i imamo
+          <div className=" ">
+            Poznavanje tržišta: Duboko smo ukorenjeni u industriji i imamo
             detaljno razumevanje lokalnog tržišta nekretnina.
           </div>
-          <div className="flex justify-center">
+          <div className=" ">
             Posvećenost klijentima: Vaše zadovoljstvo je naš prioritet. Radimo
             neumorno kako bismo osigurali da vaš proces kupovine ili prodaje
             bude što jednostavniji i bez stresa.

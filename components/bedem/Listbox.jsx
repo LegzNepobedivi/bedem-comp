@@ -17,7 +17,7 @@ export default function M_Listbox({ classes = "", people }) {
   const [selected, setSelected] = useState(people[0]);
 
   return (
-    <div className={`${poppins.className} uppercase` + classes}>
+    <div className={`${poppins.className} uppercase` + classes} name={selected}>
       <Listbox value={selected} onChange={setSelected}>
         <div className={`relative ${poppins.className} uppercase`}>
           <Listbox.Button className="relative ivanZelena w-full text-sm hover:text-white hover:bg-green-900 ring-1 ring-inset ring-green-800 cursor-default bg-white py-2 pl-3 pr-8 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:bg-green sm:text-sm">

@@ -1,10 +1,22 @@
-import { poppins } from "@/app/layout";
+"use client";
+
+import { Poppins } from "next/font/google";
+import { useRouter, useSearchParams } from "next/navigation";
+
 import DropdownButton from "./DropdownButton";
 import InputSearch from "./InputSearch";
 import SearchLogo from "../svgComp/SearchSvg";
 import M_Listbox from "./Listbox";
 
-export default function Pretraga({}) {
+const poppins = Poppins({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+});
+
+export default function Pretraga() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   return (
     <div className="bg-white ">
       <div className="p-6 flex flex-col gap-2 border-solid border-green-600 ivanZelena focus:border-0">

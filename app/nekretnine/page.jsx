@@ -1,15 +1,23 @@
 import Kartica from "@/components/bedem/Kartica";
 import Pretraga from "@/components/bedem/Pretraga";
-import Link from "next/link";
 
 import {
   getAllStan,
   getFirstSlikaByStanId,
 } from "../_actions/klijentAkcije/stanovi";
+import Paginacija from "@/components/bedem/Paginacija";
 
 const sviStanovi = await getAllStan();
 
-export default async function NekretninePage() {
+export default async function NekretninePage({ searchParams }) {
+  const page = searchParams["page"] ?? "1";
+  const per_page = searchParams["per_page"] ?? "12";
+
+  const start = (parseInt(page) - 1) * parseInt(per_page);
+  const end = parseInt(start) + parseInt(per_page);
+
+  const prikazaniStanovi = sviStanovi.slice(parseInt(start), parseInt(end));
+
   return (
     <>
       <div className="bg-white z-10">
@@ -17,7 +25,7 @@ export default async function NekretninePage() {
           <Pretraga />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 container mx-auto">
-          {sviStanovi.map(async (stan) => {
+          {prikazaniStanovi.map(async (stan) => {
             const firstSlika = await getFirstSlikaByStanId(stan.id);
             return (
               <div key={stan.id + stan.title}>
@@ -38,8 +46,13 @@ export default async function NekretninePage() {
             );
           })}
         </div>
+        <div className="py-3">
+          <Paginacija
+            hasNextPage={end < sviStanovi.length}
+            hasPrevPage={start > 0}
+          />
+        </div>
       </div>
-      <div></div>
     </>
   );
 }
