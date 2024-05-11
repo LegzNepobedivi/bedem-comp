@@ -61,7 +61,10 @@ export default function Kartica({
         </div>
         <div className="pt-1 px-2">
           <div className="text-lg text-black font-bold">
-            <Link href={showLink}>{priceFormatted}</Link>
+            <Link href={showLink}>
+              {price != 0 && priceFormatted}
+              {price == 0 && "Cena na upit"}
+            </Link>
           </div>
         </div>
         <div className="pt-1 px-2">

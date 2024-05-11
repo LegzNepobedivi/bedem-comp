@@ -1,18 +1,20 @@
 import React from "react";
 import Image from "next/image";
 
-function SlikaIzdvajamo() {
+function SlikaIzdvajamo({ sourceUrl, title }) {
   return (
     <div>
       <div className="relative h-80">
         <Image
-          src="/images/slika1.jpg"
+          src={sourceUrl}
           alt="Picture of real estate"
           fill
           style={{ objectFit: "cover" }}
         />
-        <div className="absolute mx-3 mt-[17rem] md:text-2xl text-base">
-          Sokobanja - Sokonova
+        <div className="">
+          <div className="absolute px-3 mt-[17rem] md:text-2xl text-base bgIvanZelenaSvetla rounded-3xl opacity-95">
+            {title}
+          </div>
         </div>
       </div>
     </div>

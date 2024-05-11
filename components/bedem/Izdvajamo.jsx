@@ -11,11 +11,17 @@ export default function Izdvajamo({}) {
         Izdvajamo
       </div>
       <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-3">
-        <Link href="/projekti/1">
-          <SlikaIzdvajamo />
+        <Link href="/projekti/4">
+          <SlikaIzdvajamo
+            sourceUrl="/images/naslovnaStrana4.jpg"
+            title="Magna Real Estate - Južni Bulevar"
+          />
         </Link>
-        <Link href="/projekti/2">
-          <SlikaIzdvajamo />
+        <Link href="/projekti/5">
+          <SlikaIzdvajamo
+            sourceUrl="/images/naslovnaStrana5.jpg"
+            title="Novi Banovci - Dunavska trilogija"
+          />
         </Link>
       </div>
       <div className={`${poppins.className} text-center mt-5 uppercase`}>

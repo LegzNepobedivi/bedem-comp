@@ -72,6 +72,7 @@ export default async function PrikazNekretnine({ params }) {
               </div>
               <div className="text-black">
                 {stanDetails[0].price != 0 && priceFormatted}
+                {stanDetails[0].price == 0 && "Cena na upit"}
               </div>
             </div>
             <div className="">

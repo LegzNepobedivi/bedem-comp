@@ -64,3 +64,14 @@ export async function getFirstSlikaByStanId(input_id) {
     return data;
   }
 }
+
+export async function getOnesByStanId(input_id, input_how_much) {
+  let { data, error } = await supabase.rpc("slike_get_ones", {
+    input_how_much,
+    input_id,
+  });
+  if (error) return error;
+  else {
+    return data;
+  }
+}

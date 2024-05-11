@@ -19,8 +19,6 @@ function Paginacija({ hasNextPage, hasPrevPage }) {
 
   let page = searchParams.get("page") ?? "1";
   let per_page = searchParams.get("per_page") ?? "12";
-  console.log("page", page);
-  console.log("per_page", per_page);
 
   return (
     <React.Suspense>

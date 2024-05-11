@@ -28,13 +28,13 @@ const products = [
   {
     name: "Južni bulevar, Beograd",
     description: "Stanovi u srcu Beograda",
-    href: "/projekti/1",
+    href: "/projekti/4",
     icon: BuildingOffice2Icon,
   },
   {
     name: "Novi Banovci",
     description: "Uhvati priliku za investiciju u budućnost",
-    href: "/projekti/2",
+    href: "/projekti/5",
     icon: BuildingOfficeIcon,
   },
   // {

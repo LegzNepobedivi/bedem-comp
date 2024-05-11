@@ -4,7 +4,12 @@ import { object } from "zod";
 
 import { poppins } from "@/app/layout";
 import Objekat from "@/components/bedem/Objekat";
-import { getAllProjekti } from "@/app/_actions/adminAkcije/projekti";
+import {
+  getAllProjekti,
+  getProjekatById,
+} from "@/app/_actions/adminAkcije/projekti";
+
+import { getAllObjectsByProjectId } from "@/app/_actions/klijentAkcije/objekti";
 
 //generate all the static paths/dynamic routes
 export async function generateStaticParams() {
@@ -15,29 +20,23 @@ export async function generateStaticParams() {
   }));
 }
 
-function ProjekatJedan() {
+async function ProjekatJedan({ params }) {
+  let idProjekta = params.slug;
+
+  const projekat = await getProjekatById(idProjekta);
+  const objekti = await getAllObjectsByProjectId(idProjekta);
+
   return (
     <>
       <div className="bg-white">
         <div className="bg-stone-900 text-center p-3">
-          <h1 className="text-3xl mb-3">Sokonova</h1>
-          <p className="px-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo labore
-            tempore eligendi, odio ipsam blanditiis. Nemo corrupti dolores
-            reiciendis beatae dolorem ea iure alias itaque nobis dicta! Ad,
-            totam quas? Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit. Nemo fuga officia provident vel soluta, nihil omnis aperiam
-            delectus nostrum qui reiciendis dolorem! Vel hic veniam, earum
-            maxime magni ullam quia? Lorem ipsum dolor sit, amet consectetur
-            adipisicing elit. Optio quibusdam inventore sint ad nisi, nam
-            corporis illum itaque dolores eligendi hic pariatur eveniet soluta!
-            Quisquam blanditiis reprehenderit repudiandae qui numquam!
-          </p>
+          <h1 className="text-3xl mb-3">{projekat[0].name}</h1>
+          <p className="px-2">{projekat[0].description}</p>
         </div>
         <div className="container mx-auto py-3">
-          <div className="relative h-56 md:h-80">
+          <div className="relative h-56 md:h-80 lg:h-96">
             <Image
-              src="/images/slika2.jpg"
+              src={`/images/naslovnaStrana${idProjekta}.jpg`}
               fill
               style={{ objectFit: "cover" }}
               alt="Slika projekta/Kompleksa nekretnina"
@@ -45,8 +44,9 @@ function ProjekatJedan() {
           </div>
         </div>
         <div>
-          <Objekat />
-          <Objekat />
+          {objekti.map(async (objekat) => {
+            return <Objekat objekat={objekat} />;
+          })}
         </div>
       </div>
     </>
