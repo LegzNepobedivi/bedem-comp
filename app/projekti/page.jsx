@@ -6,7 +6,11 @@ import ProjekatLevi from "@/components/bedem/ProjekatLevi";
 import ProjekatDesni from "@/components/bedem/ProjekatDesni";
 import { TextParallaxContentWhole } from "@/components/foreign/TextParallaxContent";
 
-function Projekti() {
+import { getAllProjekti } from "../_actions/adminAkcije/projekti";
+
+async function Projekti() {
+  const projekti = await getAllProjekti();
+
   return (
     <div className="bg-white">
       {/* <div className="bg-[url('/images/slika1.jpg')] text-center">
@@ -21,9 +25,14 @@ function Projekti() {
         hasButton={false}
       />
       <div className="flex flex-col gap-2">
-        <ProjekatLevi />
-        <ProjekatDesni />
-        <ProjekatLevi />
+        {projekti.map(async (projekat, index) => {
+          return (
+            <Link href="/projekti/1">
+              {index % 2 == 0 && <ProjekatLevi projekat={projekat} />}
+              {index % 2 == 1 && <ProjekatDesni projekat={projekat} />}
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

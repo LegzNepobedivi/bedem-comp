@@ -1,6 +1,7 @@
 import Kartica from "@/components/bedem/Kartica";
 import Pretraga from "@/components/bedem/Pretraga";
 
+import { getAgentByStanId } from "../_actions/klijentAkcije/agenti";
 import {
   getAllStan,
   getFirstSlikaByStanId,
@@ -27,6 +28,8 @@ export default async function NekretninePage({ searchParams }) {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 container mx-auto">
           {prikazaniStanovi.map(async (stan) => {
             const firstSlika = await getFirstSlikaByStanId(stan.id);
+            const agentStana = await getAgentByStanId(stan.id);
+
             return (
               <div key={stan.id + stan.title}>
                 <Kartica
@@ -41,6 +44,14 @@ export default async function NekretninePage({ searchParams }) {
                   numberOfRooms={stan.numberOfRooms}
                   size={stan.size}
                   showLink={`/nekretnine/${stan.id}`}
+                  agentName={
+                    (agentStana[0] && agentStana[0].name) ||
+                    (agentStana && "Bedem")
+                  }
+                  agentNumber={
+                    (agentStana[0] && agentStana[0].telephone) ||
+                    (agentStana && "+381 63 445 079")
+                  }
                 />
               </div>
             );

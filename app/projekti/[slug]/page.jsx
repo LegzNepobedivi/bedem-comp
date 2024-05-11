@@ -4,15 +4,16 @@ import { object } from "zod";
 
 import { poppins } from "@/app/layout";
 import Objekat from "@/components/bedem/Objekat";
+import { getAllProjekti } from "@/app/_actions/adminAkcije/projekti";
 
 //generate all the static paths/dynamic routes
-// export async function generateStaticParams() {
-//   const stanovi = await getAllStan();
+export async function generateStaticParams() {
+  const projekti = await getAllProjekti();
 
-//   return stanovi.map((stan) => ({
-//     slug: String(stan.id),
-//   }));
-// }
+  return projekti.map((stan) => ({
+    slug: String(stan.id),
+  }));
+}
 
 function ProjekatJedan() {
   return (

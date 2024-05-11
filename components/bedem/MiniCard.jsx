@@ -2,14 +2,14 @@ import Image from "next/image";
 
 import { poppins } from "@/app/layout";
 
-export default function MiniCard() {
+export default function MiniCard({ stan, sourceUrl }) {
   return (
     <div className="">
       <div className="rounded-b-3xl bgIvanZelenaSvetla">
         <div className="relative grid grid-cols-1">
           <div className="relative h-52 lg:h-80">
             <Image
-              src="/images/slika1.jpg"
+              src={sourceUrl}
               alt="Picture of real estate"
               fill
               style={{ objectFit: "cover" }}
@@ -17,9 +17,7 @@ export default function MiniCard() {
             />
           </div>
         </div>
-        <div className="text-white p-2">
-          Lorem ipsum dolor sit amet, consectetuer adip iscing elit, sed diam
-        </div>
+        <div className="text-white p-2">{stan.title}</div>
         <div
           className={`${poppins.className} text-white mt-4 mx-3 pb-2 text-xl`}
         >

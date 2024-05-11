@@ -26,18 +26,25 @@ import { usePathname } from "next/navigation";
 
 const products = [
   {
-    name: "Novi Banovci",
-    description: "Uhvati priliku za investiciju u budućnost",
-    href: "/projekti/novi-banovci",
-    icon: BuildingOfficeIcon,
-  },
-  {
-    name: "Stara Pazova",
-    description: "Kupi stan u srcu Vojvodine",
-    href: "/projekti/stara-pazova",
+    name: "Južni bulevar, Beograd",
+    description: "Stanovi u srcu Beograda",
+    href: "/projekti/1",
     icon: BuildingOffice2Icon,
   },
+  {
+    name: "Novi Banovci",
+    description: "Uhvati priliku za investiciju u budućnost",
+    href: "/projekti/2",
+    icon: BuildingOfficeIcon,
+  },
+  // {
+  //   name: "Stara Pazova",
+  //   description: "Kupi stan u srcu Vojvodine",
+  //   href: "/projekti/stara-pazova",
+  //   icon: SquaresPlusIcon,
+  // },
 ];
+
 const callsToAction = [
   { name: "Svi projekti", href: "/projekti", icon: PlayCircleIcon },
   { name: "Kontaktiraj nas", href: "tel:+381 63 445 079", icon: PhoneIcon },

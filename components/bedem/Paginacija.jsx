@@ -42,9 +42,7 @@ function Paginacija({ hasNextPage, hasPrevPage }) {
               />
             )}
           </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis className="ivanZelena" />
-          </PaginationItem>
+
           <PaginationItem>
             <PaginationLink
               href="#"
@@ -58,9 +56,7 @@ function Paginacija({ hasNextPage, hasPrevPage }) {
               {page}
             </PaginationLink>
           </PaginationItem>
-          <PaginationItem>
-            <PaginationEllipsis className="ivanZelena" />
-          </PaginationItem>
+
           <PaginationItem>
             {hasNextPage && (
               <PaginationNext

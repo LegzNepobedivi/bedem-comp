@@ -5,8 +5,11 @@ import { poppins } from "@/app/layout";
 import Izdvajamo from "./Izdvajamo";
 import Predlozi from "./Predlozi";
 import { TextParallaxContentWhole } from "../foreign/TextParallaxContent";
+import { stanGetFirstOfNumber } from "@/app/_actions/adminAkcije/stanovi";
 
-export default function Naslovna() {
+export default async function Naslovna() {
+  const predlozi = await stanGetFirstOfNumber(5);
+
   return (
     <div className="bg-white">
       <TextParallaxContentWhole
@@ -24,7 +27,7 @@ export default function Naslovna() {
       <Izdvajamo />
       <div className="container mx-auto py-3">
         <div className="container mx-auto">
-          <Predlozi />
+          <Predlozi stanovi={predlozi} />
         </div>
       </div>
     </div>

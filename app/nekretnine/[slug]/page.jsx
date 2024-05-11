@@ -2,8 +2,6 @@ import LeftArrowSvg from "@/components/svgComp/LeftArrowSvg";
 import PhoneSvg from "@/components/svgComp/PhoneSvg";
 import AgentSvg from "@/components/svgComp/AgentSvg";
 
-import Image from "next/image";
-
 import { poppins } from "@/app/layout";
 import { SwipeCarousel } from "@/components/foreign/SwipeCarousel";
 
@@ -24,6 +22,7 @@ import { getAllStan, getStanById } from "../../_actions/klijentAkcije/stanovi";
 import { getAgentByStanId } from "../../_actions/klijentAkcije/agenti";
 import PrikazSvihStanova from "@/components/bedem/PrikazSvihStanova";
 import { getAllSlikeByStanId } from "@/app/_actions/adminAkcije/slika";
+import { stanGetFirstOfNumber } from "@/app/_actions/adminAkcije/stanovi";
 
 //generate all the static paths/dynamic routes
 export async function generateStaticParams() {
@@ -37,6 +36,7 @@ export async function generateStaticParams() {
 export default async function PrikazNekretnine({ params }) {
   let idStana = params.slug;
 
+  const predlozi = await stanGetFirstOfNumber(5);
   let agent = await getAgentByStanId(idStana);
   let slike = await getAllSlikeByStanId(idStana);
   let stanDetails = await getStanById(idStana);
@@ -70,7 +70,9 @@ export default async function PrikazNekretnine({ params }) {
               >
                 Cena
               </div>
-              <div className="text-black">{priceFormatted}</div>
+              <div className="text-black">
+                {stanDetails[0].price != 0 && priceFormatted}
+              </div>
             </div>
             <div className="">
               <div
@@ -106,12 +108,17 @@ export default async function PrikazNekretnine({ params }) {
           </div>
           <div className="px-2">
             <div className="text-base ivanZelena font-semibold">
-              Agent: {agent[0].name} {agent[0].telephone}
+              Agent: {(agent[0] && agent[0].name) || (!agent[0] && "Bedem")}{" "}
+              {(agent[0] && agent[0].telephone) ||
+                (!agent[0] && "+381 63 445 079")}
             </div>
             <div className="flex ivanZelena border-2 border-green-950 w-fit">
               <PhoneSvg />
               <Link
-                href={`tel:${agent[0].telephone}`}
+                href={`tel:${
+                  (agent[0] && agent[0].telephone) ||
+                  (!agent[0] && "+381 63 445 079")
+                }`}
                 className="bg-green-950 uppercase text-white text-sm py-1 px-2 hover:bg-green-900"
               >
                 Pozovi
@@ -185,10 +192,11 @@ export default async function PrikazNekretnine({ params }) {
         <div className="ivanZelena">
           <p className="text-center text-4xl mb-3">Možda vam se svidi</p>
           <div className="container mx-auto">
-            <Predlozi />
+            <Predlozi stanovi={predlozi} />
           </div>
         </div>
       </div>
+      <div className="container mx-auto py-3"></div>
     </div>
   );
 }
