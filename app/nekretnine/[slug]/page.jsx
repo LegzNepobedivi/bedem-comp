@@ -29,12 +29,12 @@ export async function generateStaticParams() {
   const stanovi = await getAllStan();
 
   return stanovi.map((stan) => ({
-    slug: String(stan.id),
+    slug: String(stan?.id),
   }));
 }
 
 export default async function PrikazNekretnine({ params }) {
-  let idStana = params.slug;
+  let idStana = params?.slug;
 
   const predlozi = await stanGetFirstOfNumber(5);
   let agent = await getAgentByStanId(idStana);
@@ -42,7 +42,7 @@ export default async function PrikazNekretnine({ params }) {
   let stanDetails = await getStanById(idStana);
 
   const priceFormatted =
-    stanDetails[0].price
+    stanDetails[0]?.price
       .toLocaleString("en-US", { style: "currency", currency: "USD" })
       .replace("$", "") + " €";
 
@@ -184,7 +184,7 @@ export default async function PrikazNekretnine({ params }) {
               <p className="text-center text-4xl">Opis</p>
               <div className="border-t border-gray-600 my-4"></div>
               <p className="text-center ivanSiva font-thin">
-                {stanDetails[0].description}
+                {stanDetails[0]?.description}
               </p>
             </div>
           </div>

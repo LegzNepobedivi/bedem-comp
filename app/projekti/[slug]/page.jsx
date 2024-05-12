@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { object } from "zod";
 
 import { poppins } from "@/app/layout";
 import Objekat from "@/components/bedem/Objekat";
@@ -16,12 +15,12 @@ export async function generateStaticParams() {
   const projekti = await getAllProjekti();
 
   return projekti.map((stan) => ({
-    slug: String(stan.id),
+    slug: String(stan?.id),
   }));
 }
 
 async function ProjekatJedan({ params }) {
-  let idProjekta = params.slug;
+  let idProjekta = params?.slug;
 
   const projekat = await getProjekatById(idProjekta);
   const objekti = await getAllObjectsByProjectId(idProjekta);

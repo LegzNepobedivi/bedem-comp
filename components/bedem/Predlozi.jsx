@@ -28,7 +28,7 @@ async function Predlozi({ stanovi }) {
                 <MiniCard
                   stan={stan}
                   sourceUrl={
-                    (firstSlika[0] && firstSlika[0].url) ||
+                    (firstSlika[0] && firstSlika[0]?.url) ||
                     (firstSlika && "/images/slika1.jpg")
                   }
                 />
