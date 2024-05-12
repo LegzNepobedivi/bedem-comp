@@ -40,6 +40,9 @@ async function ProjekatJedan({ params }) {
               fill
               style={{ objectFit: "cover" }}
               alt="Slika projekta/Kompleksa nekretnina"
+              placeholder="blur"
+              blurDataURL={`/images/naslovnaStrana${idProjekta}.jpg`}
+              sizes="100vw"
             />
           </div>
         </div>

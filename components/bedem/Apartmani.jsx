@@ -35,6 +35,9 @@ async function Apartmani({ objectId }) {
                         fill
                         style={{ objectFit: "cover" }}
                         alt="Slika apartmana u okviru objekta"
+                        placeholder="blur"
+                        blurDataURL={slike2[0].url}
+                        sizes="100vw"
                       />
                     </div>
                     <div className="relative h-56 md:h-80">
@@ -43,6 +46,9 @@ async function Apartmani({ objectId }) {
                         fill
                         style={{ objectFit: "cover" }}
                         alt="Slika apartmana u okviru objekta"
+                        placeholder="blur"
+                        blurDataURL={slike2[1].url}
+                        sizes="100vw"
                       />
                     </div>
                   </div>

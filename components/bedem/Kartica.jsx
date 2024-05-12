@@ -49,7 +49,9 @@ export default function Kartica({
                 alt="Picture of real estate"
                 fill
                 style={{ objectFit: "cover" }}
-                //sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                placeholder="blur"
+                blurDataURL={sourceUrl}
+                sizes="100vw"
               />
             </Link>
           </div>

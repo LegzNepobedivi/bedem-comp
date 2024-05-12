@@ -3,6 +3,11 @@ import Image from "next/image";
 import { poppins } from "@/app/layout";
 
 export default function MiniCard({ stan, sourceUrl }) {
+  const priceFormatted =
+    stan.price
+      .toLocaleString("en-US", { style: "currency", currency: "USD" })
+      .replace("$", "") + " €";
+
   return (
     <div className="">
       <div className="rounded-b-3xl bgIvanZelenaSvetla">
@@ -13,7 +18,9 @@ export default function MiniCard({ stan, sourceUrl }) {
               alt="Picture of real estate"
               fill
               style={{ objectFit: "cover" }}
-              //sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              placeholder="blur"
+              blurDataURL={sourceUrl}
+              sizes="100vw"
             />
           </div>
         </div>
@@ -21,7 +28,8 @@ export default function MiniCard({ stan, sourceUrl }) {
         <div
           className={`${poppins.className} text-white mt-4 mx-3 pb-2 text-xl`}
         >
-          2.000.000 €
+          {stan.price != 0 && priceFormatted}
+          {stan.price == 0 && "Cena na upit"}
         </div>
       </div>
     </div>

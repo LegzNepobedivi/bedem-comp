@@ -46,6 +46,11 @@ async function ProjekatLevi({ projekat }) {
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 0 && slike[0]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
               <div className="relative h-36 md:h-52 lg:h-72">
@@ -54,6 +59,11 @@ async function ProjekatLevi({ projekat }) {
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 1 && slike[1]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
             </div>
@@ -66,6 +76,11 @@ async function ProjekatLevi({ projekat }) {
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 2 && slike[2]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
               <div className="relative h-36 md:h-52 lg:h-72">
@@ -74,6 +89,11 @@ async function ProjekatLevi({ projekat }) {
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 3 && slike[3]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
             </div>

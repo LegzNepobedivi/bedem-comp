@@ -27,7 +27,7 @@ async function Projekti() {
       <div className="flex flex-col gap-2">
         {projekti.map(async (projekat, index) => {
           return (
-            <Link href="/projekti/1">
+            <Link href={`/projekti/${projekat.id}`}>
               {index % 2 == 0 && <ProjekatLevi projekat={projekat} />}
               {index % 2 == 1 && <ProjekatDesni projekat={projekat} />}
             </Link>

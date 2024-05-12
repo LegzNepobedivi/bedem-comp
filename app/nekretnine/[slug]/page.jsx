@@ -138,9 +138,10 @@ export default async function PrikazNekretnine({ params }) {
           <DialogContent>
             <DialogHeader>
               {/* <DialogTitle>Are you absolutely sure?</DialogTitle> */}
-              <DialogDescription>
+              <PrikazSvihStanova slike={slike} />
+              {/* <DialogDescription>
                 <PrikazSvihStanova slike={slike} />
-              </DialogDescription>
+              </DialogDescription> */}
             </DialogHeader>
           </DialogContent>
         </Dialog>

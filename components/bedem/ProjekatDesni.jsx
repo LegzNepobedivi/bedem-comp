@@ -28,14 +28,24 @@ async function ProjekatDesni({ projekat }) {
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 0 && slike[0]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
               <div className="relative h-36 md:h-52 lg:h-72">
                 <Image
-                  src={(slike.length > 0 && slike[0]) || "/images/slika1.jpg"}
+                  src={(slike.length > 1 && slike[1]) || "/images/slika1.jpg"}
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 1 && slike[1]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
             </div>
@@ -44,18 +54,28 @@ async function ProjekatDesni({ projekat }) {
             <div className="flex flex-col gap-4">
               <div className="relative h-36 md:h-52 lg:h-72">
                 <Image
-                  src={(slike.length > 0 && slike[0]) || "/images/slika1.jpg"}
+                  src={(slike.length > 2 && slike[2]) || "/images/slika1.jpg"}
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 2 && slike[2]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
               <div className="relative h-36 md:h-52 lg:h-72">
                 <Image
-                  src={(slike.length > 0 && slike[0]) || "/images/slika1.jpg"}
+                  src={(slike.length > 3 && slike[3]) || "/images/slika1.jpg"}
                   fill
                   style={{ objectFit: "cover" }}
                   alt="Lepa slika koja reprezentuje projekat"
+                  sizes="100vw"
+                  placeholder="blur"
+                  blurDataURL={
+                    (slike.length > 3 && slike[3]) || "/images/slika1.jpg"
+                  }
                 />
               </div>
             </div>

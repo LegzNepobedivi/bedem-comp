@@ -10,6 +10,9 @@ function SlikaIzdvajamo({ sourceUrl, title }) {
           alt="Picture of real estate"
           fill
           style={{ objectFit: "cover" }}
+          sizes="100vw"
+          placeholder="blur"
+          blurDataURL={sourceUrl}
         />
         <div className="">
           <div className="absolute px-3 mt-[17rem] md:text-2xl text-base bgIvanZelenaSvetla rounded-3xl opacity-95">

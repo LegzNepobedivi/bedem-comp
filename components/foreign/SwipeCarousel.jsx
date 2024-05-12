@@ -3,37 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
-const imgs = [
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-  "/images/slika2.jpg",
-  "/images/slika3.jpg",
-  "/images/slika1.jpg",
-];
-
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
 const DRAG_BUFFER = 20;

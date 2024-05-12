@@ -34,6 +34,8 @@ function PrikazSvihStanova({ slike }) {
         height={600}
         width={1000}
         priority={true}
+        placeholder="blur"
+        blurDataURL={slike[indeks].url}
         className=" max-w-64 md:max-w-2xl lg:max-w-4xl xl:max-w-5xl"
         style={{ maxHeight: "700px" }}
         alt="slika stana"

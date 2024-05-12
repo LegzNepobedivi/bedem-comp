@@ -15,6 +15,9 @@ function Objekat({ objekat }) {
             src={`/images/objekatStrana${objekat.id}.jpg`}
             fill
             style={{ objectFit: "cover" }}
+            placeholder="blur"
+            blurDataURL={`/images/objekatStrana${objekat.id}.jpg`}
+            sizes="100vw"
           />
         </div>
         {/* <p className={`${poppins.className} uppercase`}>Prizemlje</p> */}
