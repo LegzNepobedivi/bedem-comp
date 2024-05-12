@@ -61,7 +61,7 @@ export default async function PrikazNekretnine({ params }) {
         </div>
         <div className="py-2 px-4">
           <div className="ivanZelena text-2xl font-semibold mb-3">
-            {stanDetails[0].title}
+            {stanDetails[0]?.title}
           </div>
           <div className="grid grid-cols-2 md:grid-cols-6 xl:grid-cols-8 gap-0 mx-auto font-medium">
             <div className="">
@@ -71,8 +71,8 @@ export default async function PrikazNekretnine({ params }) {
                 Cena
               </div>
               <div className="text-black">
-                {stanDetails[0].price != 0 && priceFormatted}
-                {stanDetails[0].price == 0 && "Cena na upit"}
+                {stanDetails[0]?.price != 0 && priceFormatted}
+                {stanDetails[0]?.price == 0 && "Cena na upit"}
               </div>
             </div>
             <div className="">
@@ -81,7 +81,7 @@ export default async function PrikazNekretnine({ params }) {
               >
                 Površina
               </div>
-              <div className="text-black">{stanDetails[0].size} m2</div>
+              <div className="text-black">{stanDetails[0]?.size} m2</div>
             </div>
             <div className="">
               <div
@@ -90,7 +90,7 @@ export default async function PrikazNekretnine({ params }) {
                 Struktura
               </div>
               <div className="text-black">
-                {stanDetails[0].numberOfRooms} soban
+                {stanDetails[0]?.numberOfRooms} soban
               </div>
             </div>
             <div className="">
@@ -109,15 +109,15 @@ export default async function PrikazNekretnine({ params }) {
           </div>
           <div className="px-2">
             <div className="text-base ivanZelena font-semibold">
-              Agent: {(agent[0] && agent[0].name) || (!agent[0] && "Bedem")}{" "}
-              {(agent[0] && agent[0].telephone) ||
+              Agent: {(agent[0] && agent[0]?.name) || (!agent[0] && "Bedem")}{" "}
+              {(agent[0] && agent[0]?.telephone) ||
                 (!agent[0] && "+381 63 445 079")}
             </div>
             <div className="flex ivanZelena border-2 border-green-950 w-fit">
               <PhoneSvg />
               <Link
                 href={`tel:${
-                  (agent[0] && agent[0].telephone) ||
+                  (agent[0] && agent[0]?.telephone) ||
                   (!agent[0] && "+381 63 445 079")
                 }`}
                 className="bg-green-950 uppercase text-white text-sm py-1 px-2 hover:bg-green-900"

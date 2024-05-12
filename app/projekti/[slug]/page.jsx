@@ -30,8 +30,8 @@ async function ProjekatJedan({ params }) {
     <>
       <div className="bg-white">
         <div className="bg-stone-900 text-center p-3">
-          <h1 className="text-3xl mb-3">{projekat[0].name}</h1>
-          <p className="px-2">{projekat[0].description}</p>
+          <h1 className="text-3xl mb-3">{projekat[0]?.name}</h1>
+          <p className="px-2">{projekat[0]?.description}</p>
         </div>
         <div className="container mx-auto py-3">
           <div className="relative h-56 md:h-80 lg:h-96">
