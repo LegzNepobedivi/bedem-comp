@@ -25,9 +25,9 @@ async function Projekti() {
         hasButton={false}
       />
       <div className="flex flex-col gap-2">
-        {projekti.map(async (projekat, index) => {
+        {projekti?.map(async (projekat, index) => {
           return (
-            <Link href={`/projekti/${projekat.id}`}>
+            <Link href={`/projekti/${projekat?.id}`}>
               {index % 2 == 0 && <ProjekatLevi projekat={projekat} />}
               {index % 2 == 1 && <ProjekatDesni projekat={projekat} />}
             </Link>
