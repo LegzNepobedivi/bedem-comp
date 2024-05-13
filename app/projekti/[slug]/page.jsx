@@ -9,17 +9,22 @@ import {
 } from "@/app/_actions/adminAkcije/projekti";
 
 import { getAllObjectsByProjectId } from "@/app/_actions/klijentAkcije/objekti";
+import { notFound } from "next/navigation";
 
 //generate all the static paths/dynamic routes
 export async function generateStaticParams() {
   const projekti = await getAllProjekti();
 
-  return projekti?.map((stan) => ({
+  return projekti.map((stan) => ({
     slug: String(stan?.id),
   }));
 }
 
 async function ProjekatJedan({ params }) {
+  if (Number(params?.slug) > 100 || Number(params?.slug) < 0) {
+    notFound();
+  }
+
   let idProjekta = params?.slug;
 
   const projekat = await getProjekatById(idProjekta);
