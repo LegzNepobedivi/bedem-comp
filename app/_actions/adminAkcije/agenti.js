@@ -10,16 +10,20 @@ export async function createAgent(n_mail, n_name, n_position, n_telephone) {
     n_telephone,
   });
 
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
 
 export async function getAllAgents() {
   let { data, error } = await supabase.rpc("agent_get_all");
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -28,8 +32,10 @@ export async function getAgentByStanId(input_id) {
   let { data, error } = await supabase.rpc("agent_get_by_stan_id", {
     input_id,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -48,8 +54,10 @@ export async function updateAgent(
     n_position,
     n_telephone,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -59,8 +67,10 @@ export async function deleteAgent(input_id) {
     input_id,
   });
 
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -70,8 +80,10 @@ export async function disconnectAgentFromStan(d_agent_id, d_stan_id) {
     d_agent_id,
     d_stan_id,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -81,8 +93,10 @@ export async function connectAgentToStan(agent_id_arg, stan_id_arg) {
     agent_id_arg,
     stan_id_arg,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }

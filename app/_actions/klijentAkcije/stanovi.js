@@ -5,8 +5,10 @@ import supabase from "@/lib/supabase";
 //Stanovi
 export async function getAllStan() {
   let { data, error } = await supabase.rpc("stan_get_all");
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -16,8 +18,10 @@ export async function getFirstSlikaByStanId(input_id) {
     input_id,
   });
 
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -27,8 +31,10 @@ export async function getStanById(input_id) {
     input_id,
   });
 
-  if (error) return error;
-  else return data;
+  if (error) {
+    console.log(error);
+    return [];
+  } else return data;
 }
 
 export async function pretragaGetAllStanovi(
@@ -41,8 +47,10 @@ export async function pretragaGetAllStanovi(
     input_type_stana,
     input_type_transaction,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -51,8 +59,10 @@ export async function stanGetFirstOfNumber(input_number) {
   let { data, error } = await supabase.rpc("stan_get_first_of_number", {
     input_number,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -65,8 +75,10 @@ export async function thumbnailsProjectGetAllStanovi(
     n_input_number,
     n_project_id_input,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }

@@ -7,8 +7,10 @@ export async function connectStanToObject(stan_id_arg, objekat_id_arg) {
     objekat_id_arg,
     stan_id_arg,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -44,8 +46,10 @@ export async function createStanAndConnectToObject(
       objekat_id_arg,
     }
   );
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -83,8 +87,10 @@ export async function createStanAndConnectToObjectAndAgent(
       objekat_id_arg,
     }
   );
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -103,8 +109,10 @@ export async function createStan() {
     n_type,
     n_ytlink,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -124,8 +132,10 @@ export async function updateStan() {
     n_type,
     n_ytlink,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -135,8 +145,10 @@ export async function deleteStan(input_id) {
     input_id,
   });
 
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -144,8 +156,10 @@ export async function deleteStan(input_id) {
 export async function getAllStanovi() {
   let { data, error } = await supabase.rpc("stan_get_all");
 
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -155,8 +169,10 @@ export async function getStanById(input_id) {
     input_id,
   });
 
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -171,8 +187,10 @@ export async function pretragaGetAllStanovi(
     input_type_stana,
     input_type_transaction,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -181,8 +199,10 @@ export async function stanGetFirstOfNumber(input_number) {
   let { data, error } = await supabase.rpc("stan_get_first_of_number", {
     input_number,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }
@@ -195,8 +215,10 @@ export async function thumbnailsProjectGetAllStanovi(
     n_input_number,
     n_project_id_input,
   });
-  if (error) return error;
-  else {
+  if (error) {
+    console.log(error);
+    return [];
+  } else {
     return data;
   }
 }

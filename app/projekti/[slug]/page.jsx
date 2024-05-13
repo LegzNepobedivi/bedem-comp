@@ -35,12 +35,6 @@ export async function generateStaticParams() {
 }
 
 async function ProjekatJedan({ params }) {
-  const projekti = await getAllProjekti();
-
-  if (!projekti) {
-    notFound();
-  }
-
   let idProjekta = params?.slug;
 
   const projekat = await getProjekatById(idProjekta);
@@ -54,6 +48,8 @@ async function ProjekatJedan({ params }) {
   if (!objekti) {
     notFound();
   }
+
+  console.log(objekti);
 
   return (
     <>
@@ -76,7 +72,7 @@ async function ProjekatJedan({ params }) {
           </div>
         </div>
         <div>
-          {objekti.map(async (objekat) => {
+          {objekti?.map(async (objekat) => {
             return <Objekat objekat={objekat} />;
           })}
         </div>

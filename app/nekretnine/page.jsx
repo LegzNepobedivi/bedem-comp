@@ -7,8 +7,13 @@ import {
   getFirstSlikaByStanId,
 } from "../_actions/klijentAkcije/stanovi";
 import Paginacija from "@/components/bedem/Paginacija";
+import { notFound } from "next/navigation";
 
 const sviStanovi = await getAllStan();
+
+if (!sviStanovi) {
+  notFound();
+}
 
 export default async function NekretninePage({ searchParams }) {
   const page = searchParams["page"] ?? "1";
@@ -18,6 +23,10 @@ export default async function NekretninePage({ searchParams }) {
   const end = parseInt(start) + parseInt(per_page);
 
   const prikazaniStanovi = sviStanovi?.slice(parseInt(start), parseInt(end));
+
+  if (!prikazaniStanovi) {
+    notFound();
+  }
 
   return (
     <>

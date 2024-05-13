@@ -14,15 +14,20 @@ import Image from "next/image";
 
 import { getAllStanByObjectId } from "@/app/_actions/klijentAkcije/objekti";
 import { getOnesByStanId } from "@/app/_actions/adminAkcije/slika";
+import { notFound } from "next/navigation";
 
 async function Apartmani({ objectId }) {
   const stanoviObjekta = await getAllStanByObjectId(objectId);
+
+  if (!stanoviObjekta) {
+    return notFound();
+  }
 
   return (
     <>
       <Carousel className="">
         <CarouselContent>
-          {stanoviObjekta.map(async (stan) => {
+          {stanoviObjekta?.map(async (stan) => {
             const slike2 = await getOnesByStanId(stan.id, 2);
 
             return (
