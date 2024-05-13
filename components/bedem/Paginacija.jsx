@@ -17,8 +17,8 @@ function Paginacija({ hasNextPage, hasPrevPage }) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  let page = searchParams.get("page") ?? "1";
-  let per_page = searchParams.get("per_page") ?? "12";
+  let page = searchParams?.get("page") ?? "1";
+  let per_page = searchParams?.get("per_page") ?? "12";
 
   return (
     <React.Suspense>

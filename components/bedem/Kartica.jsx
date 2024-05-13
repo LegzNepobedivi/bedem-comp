@@ -18,7 +18,7 @@ export default function Kartica({
 }) {
   const priceFormatted =
     price
-      .toLocaleString("en-US", { style: "currency", currency: "USD" })
+      ?.toLocaleString("en-US", { style: "currency", currency: "USD" })
       .replace("$", "") + " €";
 
   return (

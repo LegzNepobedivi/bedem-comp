@@ -11,7 +11,7 @@ import {
 async function ProjekatLevi({ projekat }) {
   const stana4 = await thumbnailsProjectGetAllStanovi(4, projekat?.id);
   let slike = [];
-  for (let i = 0; i < stana4.length; i++) {
+  for (let i = 0; i < stana4?.length; i++) {
     const firstSlika = await getFirstSlikaByStanId(stana4[i]?.id);
     slike.push(firstSlika[0]?.url);
   }
@@ -32,7 +32,7 @@ async function ProjekatLevi({ projekat }) {
                 className={`${poppins.className} text-xs md:text-base font-normal`}
               >
                 {projekat?.description?.length > 150
-                  ? projekat?.description.substring(0, 150) + "..."
+                  ? projekat?.description?.substring(0, 150) + "..."
                   : projekat?.description}{" "}
                 {/* Staviti limit za broj karaktera */}
               </p>

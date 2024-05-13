@@ -35,7 +35,7 @@ export default function M_Listbox({ classes = "", people }) {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute mt-1 max-h-60 w-60 overflow-auto rounded-md bgIvanZelenaSvetla py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm z-20">
-              {people.map((person, personIdx) => (
+              {people?.map((person, personIdx) => (
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
@@ -54,7 +54,7 @@ export default function M_Listbox({ classes = "", people }) {
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {person.name}
+                        {person?.name}
                       </span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-white">

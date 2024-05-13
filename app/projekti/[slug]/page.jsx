@@ -14,7 +14,7 @@ import { getAllObjectsByProjectId } from "@/app/_actions/klijentAkcije/objekti";
 export async function generateStaticParams() {
   const projekti = await getAllProjekti();
 
-  return projekti.map((stan) => ({
+  return projekti?.map((stan) => ({
     slug: String(stan?.id),
   }));
 }

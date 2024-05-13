@@ -28,7 +28,7 @@ import { stanGetFirstOfNumber } from "@/app/_actions/adminAkcije/stanovi";
 export async function generateStaticParams() {
   const stanovi = await getAllStan();
 
-  return stanovi.map((stan) => ({
+  return stanovi?.map((stan) => ({
     slug: String(stan?.id),
   }));
 }

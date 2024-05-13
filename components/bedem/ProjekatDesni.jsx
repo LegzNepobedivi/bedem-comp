@@ -11,7 +11,7 @@ import {
 async function ProjekatDesni({ projekat }) {
   const stana4 = await thumbnailsProjectGetAllStanovi(4, projekat?.id);
   let slike = [];
-  for (let i = 0; i < stana4.length; i++) {
+  for (let i = 0; i < stana4?.length; i++) {
     const firstSlika = await getFirstSlikaByStanId(stana4[i]?.id);
     slike.push(firstSlika[0]?.url);
   }
