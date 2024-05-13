@@ -29,7 +29,7 @@ export async function generateStaticParams() {
   const stanovi = await getAllStan();
 
   return stanovi.map((stan) => ({
-    slug: String(stan?.id),
+    slug: String(stan.id),
   }));
 }
 

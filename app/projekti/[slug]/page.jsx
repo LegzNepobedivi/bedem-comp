@@ -16,7 +16,7 @@ export async function generateStaticParams() {
   const projekti = await getAllProjekti();
 
   return projekti.map((stan) => ({
-    slug: String(stan?.id),
+    slug: String(stan.id),
   }));
 }
 
