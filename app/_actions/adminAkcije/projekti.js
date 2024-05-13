@@ -26,7 +26,10 @@ export async function deleteProjekat(input_id) {
 
 export async function getAllProjekti() {
   let { data, error } = await supabase.rpc("projekat_get_all");
-  if (error) return error;
+  if (error)
+    return {
+      throwError: error,
+    };
   else {
     return data;
   }
