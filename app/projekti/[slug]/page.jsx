@@ -11,9 +11,23 @@ import {
 import { getAllObjectsByProjectId } from "@/app/_actions/klijentAkcije/objekti";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata() {
+  const projekti = await getAllProjekti();
+
+  return {
+    title: "Projekti",
+    description:
+      "Pregled svih projekata, Novogradnja, Stanovi, Poslovni prostori, Srbija",
+  };
+}
+
 //generate all the static paths/dynamic routes
 export async function generateStaticParams() {
   const projekti = await getAllProjekti();
+
+  if (!projekti) {
+    notFound();
+  }
 
   return projekti.map((stan) => ({
     slug: String(stan.id),
@@ -21,7 +35,9 @@ export async function generateStaticParams() {
 }
 
 async function ProjekatJedan({ params }) {
-  if (Number(params?.slug) > 100 || Number(params?.slug) < 0) {
+  const projekti = await getAllProjekti();
+
+  if (!projekti) {
     notFound();
   }
 
