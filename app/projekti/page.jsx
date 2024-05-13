@@ -11,6 +11,10 @@ import { getAllProjekti } from "../_actions/adminAkcije/projekti";
 async function Projekti() {
   const projekti = await getAllProjekti();
 
+  if (!projekti) {
+    notFound();
+  }
+
   return (
     <div className="bg-white">
       {/* <div className="bg-[url('/images/slika1.jpg')] text-center">

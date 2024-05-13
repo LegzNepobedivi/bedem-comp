@@ -44,7 +44,16 @@ async function ProjekatJedan({ params }) {
   let idProjekta = params?.slug;
 
   const projekat = await getProjekatById(idProjekta);
+
+  if (!projekat) {
+    notFound();
+  }
+
   const objekti = await getAllObjectsByProjectId(idProjekta);
+
+  if (!objekti) {
+    notFound();
+  }
 
   return (
     <>
