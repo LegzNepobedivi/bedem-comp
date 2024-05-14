@@ -49,8 +49,6 @@ async function ProjekatJedan({ params }) {
     notFound();
   }
 
-  console.log(objekti);
-
   return (
     <>
       <div className="bg-white">

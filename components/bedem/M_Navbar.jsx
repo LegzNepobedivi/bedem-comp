@@ -37,12 +37,12 @@ const products = [
     href: "/projekti/5",
     icon: BuildingOfficeIcon,
   },
-  // {
-  //   name: "Stara Pazova",
-  //   description: "Kupi stan u srcu Vojvodine",
-  //   href: "/projekti/stara-pazova",
-  //   icon: SquaresPlusIcon,
-  // },
+  {
+    name: "Batajnica",
+    description: "Stanovi u mirnom delu Beograda",
+    href: "/projekti/6",
+    icon: SquaresPlusIcon,
+  },
 ];
 
 const callsToAction = [

@@ -23,15 +23,6 @@ export default function DropdownButton({ title, items, classes }) {
   const [selected, setSelected] = useState(false);
   const [selectedItem, setSelectedItem] = useState(title);
 
-  // useEffect(() => {
-  //   console.log(selected);
-  // }, [selected]);
-
-  function handleClick(item) {
-    //setSelected(!selected);
-    console.log(item);
-  }
-
   return (
     <Menu as="div" className={`relative inline-block text-left` + classes}>
       <div className={`${poppins.className} font-normal`}>
