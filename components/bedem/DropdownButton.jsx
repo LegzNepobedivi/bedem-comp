@@ -1,12 +1,10 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 import { Poppins } from "next/font/google";
-import Link from "next/link";
-import { set } from "date-fns";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -20,8 +18,7 @@ function classNames(...classes) {
 export default function DropdownButton({ title, items, classes }) {
   let key = 0;
 
-  const [selected, setSelected] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(title);
+  let selectedItem = title ? title : "";
 
   return (
     <Menu as="div" className={`relative inline-block text-left` + classes}>

@@ -2,11 +2,11 @@
 
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
-import Image from "next/image";
+
 import {
-  XMarkIcon,
+  //XMarkIcon,
   ArrowPathIcon,
-  Bars3Icon,
+  //Bars3Icon,
   ChartPieIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,

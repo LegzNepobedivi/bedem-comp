@@ -53,7 +53,7 @@ export function UsersTable({ users, offset }) {
 }
 
 function UserRow({ user }) {
-  const userId = user.id;
+  //const userId = user.id;
   //const deleteUserWithId = deleteUser.bind(null, userId);
 
   return (

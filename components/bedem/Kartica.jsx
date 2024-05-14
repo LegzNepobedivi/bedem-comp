@@ -38,7 +38,7 @@ export default function Kartica({
             <div className="bgIvanZelena py-1 px-2 rounded-tr-lg">VR Tura</div>
           )}
           {!isNovo && !hasVr && (
-            <div className="bg-white py-1 px-2 rounded-t-lg">'</div>
+            <div className="bg-white py-1 px-2 rounded-t-lg">&#39;</div>
           )}
         </div>
         <div className="relative grid grid-cols-1">

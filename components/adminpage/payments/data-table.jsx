@@ -3,15 +3,15 @@
 import * as React from "react";
 
 import {
-  ColumnFiltersState,
+  //ColumnFiltersState,
   flexRender,
   getCoreRowModel,
-  SortingState,
+  //SortingState,
   useReactTable,
   getSortedRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
-  VisibilityState,
+  //VisibilityState,
 } from "@tanstack/react-table";
 
 import {

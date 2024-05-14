@@ -1,10 +1,10 @@
 //import React from "react";
-import { poppins } from "@/app/layout";
 import Link from "next/link";
 
 import ProjekatLevi from "@/components/bedem/ProjekatLevi";
 import ProjekatDesni from "@/components/bedem/ProjekatDesni";
 import { TextParallaxContentWhole } from "@/components/foreign/TextParallaxContent";
+import { notFound } from "next/navigation";
 
 import { getAllProjekti } from "../_actions/adminAkcije/projekti";
 
@@ -31,10 +31,12 @@ async function Projekti() {
       <div className="flex flex-col gap-2">
         {projekti?.map(async (projekat, index) => {
           return (
-            <Link href={`/projekti/${projekat?.id}`}>
-              {index % 2 == 0 && <ProjekatLevi projekat={projekat} />}
-              {index % 2 == 1 && <ProjekatDesni projekat={projekat} />}
-            </Link>
+            <div key={projekat?.id}>
+              <Link href={`/projekti/${projekat?.id}`}>
+                {index % 2 == 0 && <ProjekatLevi projekat={projekat} />}
+                {index % 2 == 1 && <ProjekatDesni projekat={projekat} />}
+              </Link>
+            </div>
           );
         })}
       </div>

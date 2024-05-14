@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display, Poppins } from "next/font/google";
+import { Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import M_Navbar from "@/components/bedem/M_Navbar";
 import M_Footer from "@/components/bedem/M_Footer";

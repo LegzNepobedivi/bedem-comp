@@ -1,7 +1,5 @@
-import Link from "next/link";
 import Pretraga from "./Pretraga";
 
-import { poppins } from "@/app/layout";
 import Izdvajamo from "./Izdvajamo";
 import Predlozi from "./Predlozi";
 import { TextParallaxContentWhole } from "../foreign/TextParallaxContent";

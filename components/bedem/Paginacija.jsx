@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
+  //PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,

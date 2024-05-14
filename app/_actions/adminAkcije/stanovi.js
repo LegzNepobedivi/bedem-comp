@@ -95,7 +95,19 @@ export async function createStanAndConnectToObjectAndAgent(
   }
 }
 
-export async function createStan() {
+export async function createStan(
+  n_description,
+  n_floor,
+  n_numberofrooms,
+  n_others,
+  n_price,
+  n_size,
+  n_sorting_id,
+  n_title,
+  n_transaction_type,
+  n_type,
+  n_ytlink
+) {
   let { data, error } = await supabase.rpc("stan_create", {
     n_description,
     n_floor,
@@ -117,7 +129,20 @@ export async function createStan() {
   }
 }
 
-export async function updateStan() {
+export async function updateStan(
+  input_id,
+  n_description,
+  n_floor,
+  n_numberofrooms,
+  n_others,
+  n_price,
+  n_size,
+  n_sorting_id,
+  n_title,
+  n_transaction_type,
+  n_type,
+  n_ytlink
+) {
   let { data, error } = await supabase.rpc("stan_update", {
     input_id,
     n_description,

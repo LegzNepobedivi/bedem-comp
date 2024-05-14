@@ -1,9 +1,4 @@
-import DeployButton from "../components/auth-items/DeployButton";
-import AuthButton from "../components/auth-items/AuthButton";
 import { createClient } from "@/utils/supabase/server";
-import ConnectSupabaseSteps from "@/components/tutorial/ConnectSupabaseSteps";
-import SignUpUserSteps from "@/components/tutorial/SignUpUserSteps";
-import Header from "@/components/auth-items/Header";
 import Naslovna from "@/components/bedem/Naslovna";
 
 export default async function Index() {
@@ -19,6 +14,9 @@ export default async function Index() {
   };
 
   const isSupabaseConnected = canInitSupabaseClient();
+  if (!isSupabaseConnected) {
+    return <div>Supabase not connected</div>;
+  }
 
   return (
     <>

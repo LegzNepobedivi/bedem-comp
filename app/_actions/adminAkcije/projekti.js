@@ -2,7 +2,7 @@
 
 import supabase from "@/lib/supabase";
 
-export async function createProjekat() {
+export async function createProjekat(n_description, n_name, n_sorting_id) {
   let { data, error } = await supabase.rpc("projekat_create", {
     n_description,
     n_name,

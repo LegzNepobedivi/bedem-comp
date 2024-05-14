@@ -3,7 +3,7 @@ import Link from "next/link";
 import { poppins } from "@/app/layout";
 import SlikaIzdvajamo from "./SlikaIzdvajamo";
 
-export default function Izdvajamo({}) {
+export default function Izdvajamo() {
   return (
     <div className="bg-stone-100 p-10 pb-6">
       <div className="text-center text-3xl ivanZelena font-medium mb-3">

@@ -1,9 +1,10 @@
 import DragAndDrop from "@/components/adminpage/DragAndDrop";
 import { CustomKanban } from "@/components/adminpage/NotionKanban";
 
-export default async function IndexPage({ searchParams }) {
-  const search = searchParams.q ?? "";
-  const offset = searchParams.offset ?? 0;
+export default async function IndexPage() {
+//{ searchParams }
+  //const search = searchParams.q ?? "";
+  //const offset = searchParams.offset ?? 0;
 
   return (
     <main className="flex flex-1 flex-col p-4 md:p-6">

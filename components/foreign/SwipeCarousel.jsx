@@ -16,7 +16,7 @@ const SPRING_OPTIONS = {
 
 export const SwipeCarousel = ({ slike }) => {
   const [imgIndex, setImgIndex] = useState(0);
-
+  //const [dragX, setDragX] = useState(useMotionValue(0));
   const dragX = useMotionValue(0);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export const SwipeCarousel = ({ slike }) => {
     }, AUTO_DELAY);
 
     return () => clearInterval(intervalRef);
-  }, []);
+  }, [dragX, slike.length]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -115,11 +115,11 @@ const Dots = ({ imgIndex, setImgIndex, slike }) => {
   );
 };
 
-const GradientEdges = () => {
-  return (
-    <>
-      <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[30px] bg-gradient-to-r from-neutral-950/30 to-neutral-950/0" />
-      <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[30px] bg-gradient-to-l from-neutral-950/30 to-neutral-950/0" />
-    </>
-  );
-};
+// const GradientEdges = () => {
+//   return (
+//     <>
+//       <div className="pointer-events-none absolute bottom-0 left-0 top-0 w-[10vw] max-w-[30px] bg-gradient-to-r from-neutral-950/30 to-neutral-950/0" />
+//       <div className="pointer-events-none absolute bottom-0 right-0 top-0 w-[10vw] max-w-[30px] bg-gradient-to-l from-neutral-950/30 to-neutral-950/0" />
+//     </>
+//   );
+// };

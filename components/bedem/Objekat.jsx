@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-import { poppins } from "@/app/layout";
 import Apartmani from "./Apartmani";
 
 function Objekat({ objekat }) {

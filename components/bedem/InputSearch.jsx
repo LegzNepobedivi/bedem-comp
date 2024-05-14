@@ -1,9 +1,8 @@
-export default function InputSearch({}) {
+export default function InputSearch() {
   return (
     <div className="w-full flex">
       <label htmlFor="Search" className="sr-only">
-        {" "}
-        Search{" "}
+        Search
       </label>
 
       <input

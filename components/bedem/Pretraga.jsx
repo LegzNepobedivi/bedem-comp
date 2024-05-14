@@ -2,9 +2,7 @@
 
 import { Poppins } from "next/font/google";
 
-import DropdownButton from "./DropdownButton";
 import InputSearch from "./InputSearch";
-import SearchLogo from "../svgComp/SearchSvg";
 import M_Listbox from "./Listbox";
 
 const poppins = Poppins({

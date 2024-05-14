@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-import { poppins } from "@/app/layout";
 import Objekat from "@/components/bedem/Objekat";
 import {
   getAllProjekti,
@@ -12,7 +11,7 @@ import { getAllObjectsByProjectId } from "@/app/_actions/klijentAkcije/objekti";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata() {
-  const projekti = await getAllProjekti();
+  //const projekti = await getAllProjekti();
 
   return {
     title: "Projekti",
@@ -71,7 +70,11 @@ async function ProjekatJedan({ params }) {
         </div>
         <div>
           {objekti?.map(async (objekat) => {
-            return <Objekat objekat={objekat} />;
+            return (
+              <div key={objekat?.id}>
+                <Objekat objekat={objekat} />
+              </div>
+            );
           })}
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from "react";
-import MiniCard from "@/components/bedem/MiniCard";
 
 import Link from "next/link";
 
@@ -31,34 +30,36 @@ async function Apartmani({ objectId }) {
             const slike2 = await getOnesByStanId(stan.id, 2);
 
             return (
-              <CarouselItem className="lg:basis-1/2">
-                <Link href={`/nekretnine/${stan.id}`}>
-                  <div className="grid grid-cols-2">
-                    <div className="relative h-56 md:h-80">
-                      <Image
-                        src={slike2[0]?.url}
-                        fill
-                        style={{ objectFit: "cover" }}
-                        alt="Slika apartmana u okviru objekta"
-                        placeholder="blur"
-                        blurDataURL={slike2[0]?.url}
-                        sizes="100vw"
-                      />
+              <div key={stan?.id}>
+                <CarouselItem className="lg:basis-1/2">
+                  <Link href={`/nekretnine/${stan.id}`}>
+                    <div className="grid grid-cols-2">
+                      <div className="relative h-56 md:h-80">
+                        <Image
+                          src={slike2[0]?.url}
+                          fill
+                          style={{ objectFit: "cover" }}
+                          alt="Slika apartmana u okviru objekta"
+                          placeholder="blur"
+                          blurDataURL={slike2[0]?.url}
+                          sizes="100vw"
+                        />
+                      </div>
+                      <div className="relative h-56 md:h-80">
+                        <Image
+                          src={slike2[1]?.url}
+                          fill
+                          style={{ objectFit: "cover" }}
+                          alt="Slika apartmana u okviru objekta"
+                          placeholder="blur"
+                          blurDataURL={slike2[1]?.url}
+                          sizes="100vw"
+                        />
+                      </div>
                     </div>
-                    <div className="relative h-56 md:h-80">
-                      <Image
-                        src={slike2[1]?.url}
-                        fill
-                        style={{ objectFit: "cover" }}
-                        alt="Slika apartmana u okviru objekta"
-                        placeholder="blur"
-                        blurDataURL={slike2[1]?.url}
-                        sizes="100vw"
-                      />
-                    </div>
-                  </div>
-                </Link>
-              </CarouselItem>
+                  </Link>
+                </CarouselItem>
+              </div>
             );
           })}
           {/* <CarouselItem className="lg:basis-1/2">

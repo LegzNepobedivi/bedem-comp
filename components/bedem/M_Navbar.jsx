@@ -3,11 +3,11 @@
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import {
-  ArrowPathIcon,
+  //ArrowPathIcon,
   Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
+  //ChartPieIcon,
+  // CursorArrowRaysIcon,
+  //FingerPrintIcon,
   SquaresPlusIcon,
   XMarkIcon,
   BuildingOfficeIcon,
@@ -103,7 +103,10 @@ const M_Navbar = () => {
             </Link>
 
             <Popover className="relative">
-              {({ open, close }) => (
+              {({
+                //open,
+                close,
+              }) => (
                 <>
                   <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white uppercase">
                     Projekti

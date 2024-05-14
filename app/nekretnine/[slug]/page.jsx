@@ -11,9 +11,9 @@ import Link from "next/link";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
+  //DialogDescription,
   DialogHeader,
-  DialogTitle,
+  //DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";

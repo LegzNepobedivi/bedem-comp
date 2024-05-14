@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { FiPlus, FiTrash } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { FaFire } from "react-icons/fa";
 
 export const CustomKanban = () => {
   return (
