@@ -24,14 +24,14 @@ async function Apartmani({ objectId }) {
 
   return (
     <>
-      <Carousel className="">
-        <CarouselContent>
-          {stanoviObjekta?.map(async (stan) => {
-            const slike2 = await getOnesByStanId(stan.id, 2);
+      {stanoviObjekta && stanoviObjekta?.length > 0 && (
+        <Carousel className="">
+          <CarouselContent>
+            {stanoviObjekta?.map(async (stan) => {
+              const slike2 = await getOnesByStanId(stan.id, 2);
 
-            return (
-              <div key={stan?.id}>
-                <CarouselItem className="lg:basis-1/2">
+              return (
+                <CarouselItem className="lg:basis-1/2" key={stan?.id}>
                   <Link href={`/nekretnine/${stan.id}`}>
                     <div className="grid grid-cols-2">
                       <div className="relative h-56 md:h-80">
@@ -59,10 +59,21 @@ async function Apartmani({ objectId }) {
                     </div>
                   </Link>
                 </CarouselItem>
-              </div>
-            );
-          })}
-          {/* <CarouselItem className="lg:basis-1/2">
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      )}
+    </>
+  );
+}
+
+export default Apartmani;
+
+{
+  /* <CarouselItem className="lg:basis-1/2">
                 <Link href="/nekretnine/1">
                   <div className="grid grid-cols-2">
                     <div className="relative h-56 md:h-80">
@@ -83,13 +94,5 @@ async function Apartmani({ objectId }) {
                     </div>
                   </div>
                 </Link>
-              </CarouselItem> */}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </>
-  );
+              </CarouselItem> */
 }
-
-export default Apartmani;

@@ -58,20 +58,16 @@ async function ProjekatJedan({ params }) {
         <div className="container mx-auto py-3">
           <div className="relative h-56 md:h-80 lg:h-96">
             <Image
-              src={`/images/naslovnaStrana${
-                typeof idProjekta == "number" || typeof idProjekta == "string"
-                  ? idProjekta
-                  : "blabla"
-              }.jpg`}
+              src={`/images/naslovnaStrana${(idProjekta = idProjekta
+                .toString()
+                .replace(/\./g, ""))}.jpg`}
               fill
               style={{ objectFit: "cover" }}
               alt="Slika projekta/Kompleksa nekretnina"
               placeholder="blur"
-              blurDataURL={`/images/naslovnaStrana${
-                typeof idProjekta == "number" || typeof idProjekta == "string"
-                  ? idProjekta
-                  : "blabla"
-              }.jpg`}
+              blurDataURL={`/images/naslovnaStrana${(idProjekta = idProjekta
+                .toString()
+                .replace(/\./g, ""))}.jpg`}
               sizes="100vw"
             />
           </div>
