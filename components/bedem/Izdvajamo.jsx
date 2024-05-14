@@ -13,7 +13,7 @@ export default function Izdvajamo() {
         <Link href="/projekti/4">
           <SlikaIzdvajamo
             sourceUrl="/images/naslovnaStrana4.jpg"
-            title="Magna Real Estate - Južni Bulevar"
+            title="Novogradnja - Južni Bulevar"
           />
         </Link>
         <Link href="/projekti/5">
