@@ -7,17 +7,18 @@ import { Poppins } from "next/font/google";
 import Predlozi from "@/components/bedem/Predlozi";
 import Link from "next/link";
 
-import PrikazSvihStanova from "@/components/bedem/PrikazSvihStanova";
+//import PrikazSvihStanova from "@/components/bedem/PrikazSvihStanova";
 
-import {
-  Dialog,
-  DialogContent,
-  //DialogDescription,
-  DialogHeader,
-  //DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
+//import {
+//Dialog,
+//DialogContent,
+//DialogDescription,
+//DialogHeader,
+//DialogPortal,
+//DialogTitle,
+//DialogTrigger,
+//} from "@/components/ui/dialog";
+//import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -139,20 +140,18 @@ export default async function PrikazNekretnine({ params }: { params: any }) {
 
       <div className="mx-auto container md:w-3/4 lg:w-2/3  text-end">
         <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-400"></hr>
-        <Dialog>
+        {/* <Dialog>
           <DialogTrigger className="text-black">
             <ArrowsPointingOutIcon className="w-4 h-4 mt-7 absolute" />
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              {/* <DialogTitle>Are you absolutely sure?</DialogTitle> */}
+              
               <PrikazSvihStanova slike={slike} />
-              {/* <DialogDescription>
-                <PrikazSvihStanova slike={slike} />
-              </DialogDescription> */}
+              
             </DialogHeader>
           </DialogContent>
-        </Dialog>
+        </Dialog> */}
         <SwipeCarousel slike={slike} />
       </div>
       <div>
