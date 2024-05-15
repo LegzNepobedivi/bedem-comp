@@ -33,12 +33,16 @@ export const poppins = Poppins({
   subsets: ["latin"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  canInitSupabaseClient();
+  try {
+    canInitSupabaseClient();
+  } catch (e) {
+    console.error("Failed to initialize supabase", e);
+  }
 
   return (
     <html lang="en">

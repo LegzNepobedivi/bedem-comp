@@ -1,58 +1,34 @@
-// app/login/page.tsx
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { supabase } from "@/utils/supabase/client";
+import { login } from "./actions";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const router = useRouter();
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (error) {
-        setError(error.message);
-      } else {
-        router.push("/admin"); // Redirect to the admin page after successful login
-      }
-    } catch (error) {
-      console.error("Error in handleLogin");
-      setError("An error occurred. Please try again.");
-    }
-  };
-
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
+    <div className="container mx-auto text-center text-slate-900 bg-blue my-3">
+      <form className="flex flex-col py-3 items-center">
         <div>
           <label>Email</label>
           <input
+            className="border border-gray-300 rounded-lg px-2 py-1 w-72"
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         <div>
           <label>Password</label>
           <input
+            className="border border-gray-300 rounded-lg px-2 py-1 w-72"
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </div>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Login</button>
+        <div className="flex flex-row space-x-3 mt-2 text-white">
+          <button
+            formAction={login}
+            className="bg-green-900 py-1 px-2 rounded-lg hover:bg-green-800 hover:text-slate-50"
+            type="submit"
+          >
+            Login
+          </button>
+        </div>
       </form>
     </div>
   );
