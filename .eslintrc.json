@@ -1,17 +1,13 @@
 {
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals"
-  ]
-  // "parser": "@babel/eslint-parser",
-  // "parserOptions": {
-  //   "requireConfigFile": false,
-  //   "babelOptions": {
-  //     "presets": ["next/babel"]
-  //   }
-  // },
-  // "rules": {
-  //   // Customize your rules here
-  // }
+  ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // Customize your rules here
+    "@typescript-eslint/no-explicit-any": "off"
+  }
 }
