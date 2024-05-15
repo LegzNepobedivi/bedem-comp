@@ -13,14 +13,19 @@ export default function Login() {
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (error) {
-      setError(error.message);
-    } else {
-      router.push("/admin"); // Redirect to the admin page after successful login
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) {
+        setError(error.message);
+      } else {
+        router.push("/admin"); // Redirect to the admin page after successful login
+      }
+    } catch (error) {
+      console.error("Error in handleLogin");
+      setError("An error occurred. Please try again.");
     }
   };
 
