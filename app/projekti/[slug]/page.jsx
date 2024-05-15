@@ -24,7 +24,7 @@ export async function generateMetadata() {
 export async function generateStaticParams() {
   const projekti = await getAllProjekti();
 
-  if (!projekti) {
+  if (projekti.length === 0) {
     notFound();
   }
 
@@ -38,13 +38,13 @@ async function ProjekatJedan({ params }) {
 
   const projekat = await getProjekatById(idProjekta);
 
-  if (!projekat) {
+  if (projekat.length === 0) {
     notFound();
   }
 
   const objekti = await getAllObjectsByProjectId(idProjekta);
 
-  if (!objekti) {
+  if (objekti.length === 0) {
     notFound();
   }
 

@@ -18,7 +18,7 @@ import { notFound } from "next/navigation";
 async function Apartmani({ objectId }) {
   const stanoviObjekta = await getAllStanByObjectId(objectId);
 
-  if (!stanoviObjekta) {
+  if (stanoviObjekta.length === 0) {
     return notFound();
   }
 

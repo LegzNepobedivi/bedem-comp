@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 
 const sviStanovi = await getAllStan();
 
-if (!sviStanovi) {
+if (sviStanovi.length === 0) {
   notFound();
 }
 
@@ -24,7 +24,7 @@ export default async function NekretninePage({ searchParams }) {
 
   const prikazaniStanovi = sviStanovi?.slice(parseInt(start), parseInt(end));
 
-  if (!prikazaniStanovi) {
+  if (prikazaniStanovi.length === 0) {
     notFound();
   }
 

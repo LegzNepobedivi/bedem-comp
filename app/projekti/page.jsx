@@ -11,7 +11,7 @@ import { getAllProjekti } from "../_actions/adminAkcije/projekti";
 async function Projekti() {
   const projekti = await getAllProjekti();
 
-  if (!projekti) {
+  if (projekti.length === 0) {
     notFound();
   }
 
