@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import { typeSlika } from "@/app/_actions/types";
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
@@ -14,7 +15,7 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
-export const SwipeCarousel = ({ slike }: { slike: any }) => {
+export const SwipeCarousel = ({ slike }: { slike: Array<typeSlika> }) => {
   const [imgIndex, setImgIndex] = useState(0);
   //const [dragX, setDragX] = useState(useMotionValue(0));
   const dragX = useMotionValue(0);
@@ -73,10 +74,16 @@ export const SwipeCarousel = ({ slike }: { slike: any }) => {
   );
 };
 
-const Images = ({ imgIndex, slike }: { imgIndex: number; slike: any }) => {
+const Images = ({
+  imgIndex,
+  slike,
+}: {
+  imgIndex: number;
+  slike: Array<typeSlika>;
+}) => {
   return (
     <>
-      {slike.map((slika: any, idx: number) => {
+      {slike.map((slika: typeSlika, idx: number) => {
         return (
           <motion.div
             key={idx}
@@ -104,7 +111,7 @@ const Dots = ({
 }: {
   imgIndex: number;
   setImgIndex: React.Dispatch<React.SetStateAction<number>>;
-  slike: any[];
+  slike: Array<typeSlika>;
 }) => {
   return (
     <div className="mt-4 flex w-full justify-center gap-2 flex-wrap">

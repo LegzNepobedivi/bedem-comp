@@ -11,8 +11,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { typeStan } from "@/app/_actions/types";
 
-async function Predlozi({ stanovi }: { stanovi: Array<any> }) {
+async function Predlozi({ stanovi }: { stanovi: Array<typeStan> }) {
   return (
     <Carousel className="">
       <CarouselContent>

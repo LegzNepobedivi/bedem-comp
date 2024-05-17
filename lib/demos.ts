@@ -1,3 +1,20 @@
+export type SidebarNav = {
+  name: string;
+  items: [
+    {
+      name: string;
+      slug: string;
+      description: string;
+    }
+  ];
+};
+
+export type SidebarItem = {
+  name: string;
+  slug: string;
+  description: string;
+};
+
 export const demos = [
   {
     name: "Osnovno",

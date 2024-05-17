@@ -16,17 +16,20 @@ const poppins = Poppins({
 
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
+export type SelectedOption = { name: string };
+export type TypeSelectedOptions = SelectedOption[];
+
 export default function M_Listbox({
   classes = "",
-  people,
+  selectedOptions,
 }: {
   classes?: string;
-  people: any;
+  selectedOptions: TypeSelectedOptions;
 }) {
-  const [selected, setSelected] = useState(people[0]);
+  const [selected, setSelected] = useState<SelectedOption>(selectedOptions[0]);
 
   return (
-    <div className={`${poppins.className} uppercase` + classes}>
+    <div className={`${poppins.className} uppercase ${classes}`}>
       <Listbox value={selected} onChange={setSelected}>
         <div className={`relative ${poppins.className} uppercase`}>
           <Listbox.Button className="relative ivanZelena w-full text-sm hover:text-white hover:bg-green-900 ring-1 ring-inset ring-green-800 cursor-default bg-white py-2 pl-3 pr-8 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:bg-green sm:text-sm">
@@ -44,9 +47,9 @@ export default function M_Listbox({
             leaveTo="opacity-0"
           >
             <Listbox.Options className="absolute mt-1 max-h-60 w-60 overflow-auto rounded-md bgIvanZelenaSvetla py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm z-20">
-              {people?.map((person: any, personIdx: number) => (
+              {selectedOptions.map((selectedOne, selectedIdx) => (
                 <Listbox.Option
-                  key={personIdx}
+                  key={selectedIdx}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active
@@ -54,7 +57,7 @@ export default function M_Listbox({
                         : "text-white bgIvanZelenaSvetla"
                     }`
                   }
-                  value={person}
+                  value={selectedOne}
                 >
                   {({ selected }) => (
                     <>
@@ -63,7 +66,7 @@ export default function M_Listbox({
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {person?.name}
+                        {selectedOne?.name}
                       </span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-white">

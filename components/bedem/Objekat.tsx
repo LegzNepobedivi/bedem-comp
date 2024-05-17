@@ -2,8 +2,9 @@ import React from "react";
 import Image from "next/image";
 
 import Apartmani from "./Apartmani";
+import { typeObjekat } from "@/app/_actions/types";
 
-function Objekat({ objekat }: { objekat: any }) {
+function Objekat({ objekat }: { objekat: typeObjekat }) {
   return (
     <>
       <div className="bg-stone-900 container mx-auto py-3">

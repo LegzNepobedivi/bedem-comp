@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 
 import { getAllStanByObjectId, getOnesByStanId } from "@/app/_actions/read";
+import { typeStan } from "@/app/_actions/types";
 
 async function Apartmani({ objectId }: { objectId: number }) {
   const stanoviObjekta = await getAllStanByObjectId(objectId);
@@ -25,7 +26,7 @@ async function Apartmani({ objectId }: { objectId: number }) {
       {stanoviObjekta && stanoviObjekta?.length > 0 && (
         <Carousel className="">
           <CarouselContent>
-            {stanoviObjekta?.map(async (stan: any) => {
+            {stanoviObjekta?.map(async (stan: typeStan) => {
               const slike2 = await getOnesByStanId(stan.id, 2);
 
               return (

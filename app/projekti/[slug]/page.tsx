@@ -9,6 +9,7 @@ import {
   getProjekatById,
   getAllObjectsByProjectId,
 } from "@/app/_actions/read";
+import { typeObjekat, typeStan } from "@/app/_actions/types";
 
 export async function generateMetadata() {
   return {
@@ -26,7 +27,7 @@ export async function generateStaticParams() {
     notFound();
   }
 
-  return projekti.map((stan: any) => ({
+  return projekti.map((stan: typeStan) => ({
     slug: String(stan.id),
   }));
 }
@@ -71,7 +72,7 @@ async function ProjekatJedan({ params }: { params: { slug: string } }) {
           </div>
         </div>
         <div>
-          {objekti?.map(async (objekat: any) => {
+          {objekti?.map(async (objekat: typeObjekat) => {
             return (
               <div key={objekat?.id}>
                 <Objekat objekat={objekat} />

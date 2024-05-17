@@ -9,6 +9,7 @@ import {
   getFirstSlikaByStanId,
   getAgentByStanId,
 } from "../_actions/read";
+import { typeStan } from "../_actions/types";
 
 const sviStanovi = await getAllStanovi();
 
@@ -17,15 +18,17 @@ if (sviStanovi.length === 0) {
 }
 
 export default async function NekretninePage({
+  // params,
   searchParams,
 }: {
-  searchParams: any;
+  //params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "12";
 
-  const start = (parseInt(page) - 1) * parseInt(per_page);
-  const end = start + parseInt(per_page);
+  const start = (parseInt(page.toString()) - 1) * parseInt(per_page.toString());
+  const end = start + parseInt(per_page.toString());
 
   const prikazaniStanovi = sviStanovi?.slice(start, end);
 
@@ -40,7 +43,7 @@ export default async function NekretninePage({
           <Pretraga />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 container mx-auto">
-          {prikazaniStanovi?.map(async (stan: any) => {
+          {prikazaniStanovi?.map(async (stan: typeStan) => {
             const firstSlika = await getFirstSlikaByStanId(stan?.id);
             const agentStana = await getAgentByStanId(stan?.id);
 

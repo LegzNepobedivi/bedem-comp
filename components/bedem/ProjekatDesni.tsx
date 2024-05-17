@@ -7,8 +7,9 @@ import {
   getFirstSlikaByStanId,
   thumbnailsProjectGetAllStanovi,
 } from "@/app/_actions/read";
+import { typeProjekat } from "@/app/_actions/types";
 
-async function ProjekatDesni({ projekat }: { projekat: any }) {
+async function ProjekatDesni({ projekat }: { projekat: typeProjekat }) {
   const stana4 = await thumbnailsProjectGetAllStanovi(4, projekat?.id);
   const slike = [];
   for (let i = 0; i < stana4?.length; i++) {

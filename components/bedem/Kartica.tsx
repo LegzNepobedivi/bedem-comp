@@ -50,7 +50,7 @@ export default function Kartica({
         </div>
         <div className="relative grid grid-cols-1">
           <div className="relative h-80">
-            <Link href={showLink}>
+            <Link href={{ pathname: showLink }}>
               <Image
                 src={sourceUrl}
                 alt="Picture of real estate"
@@ -65,12 +65,12 @@ export default function Kartica({
         </div>
         <div className="pt-2 px-2">
           <div className="text-xl ivanZelena font-medium " aria-hidden="true">
-            <Link href={showLink}>{title}</Link>
+            <Link href={{ pathname: showLink }}>{title}</Link>
           </div>
         </div>
         <div className="pt-1 px-2">
           <div className="text-lg text-black font-bold">
-            <Link href={showLink}>
+            <Link href={{ pathname: showLink }}>
               {price != 0 && priceFormatted}
               {price == 0 && "Cena na upit"}
             </Link>

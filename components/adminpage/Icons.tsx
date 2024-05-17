@@ -1,7 +1,6 @@
-export function UsersIcon(props: any) {
+export function UsersIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -20,10 +19,9 @@ export function UsersIcon(props: any) {
   );
 }
 
-export function SettingsIcon(props: any) {
+export function SettingsIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -40,10 +38,9 @@ export function SettingsIcon(props: any) {
   );
 }
 
-export function SearchIcon(props: any) {
+export function SearchIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -108,10 +105,9 @@ export function Logo() {
   );
 }
 
-export function VercelLogo(props: any) {
+export function VercelLogo() {
   return (
     <svg
-      {...props}
       aria-label="Vercel logomark"
       height="64"
       role="img"

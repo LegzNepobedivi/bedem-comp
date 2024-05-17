@@ -21,7 +21,7 @@ export default function Pretraga() {
               classes={
                 "border-solid border-1 border-green-800 md:mr-3 mr-1 flex-col hover:bg-green-900 hover:text-white"
               }
-              people={[
+              selectedOptions={[
                 { name: "Kupujem / Zakupljujem" },
                 { name: "Kupujem" },
                 { name: "Zakupljujem" },
@@ -31,7 +31,7 @@ export default function Pretraga() {
               classes={
                 "border-solid border-1 border-green-800 md:mr-3 mr-1 flex-col hover:bg-green-900 hover:text-white"
               }
-              people={[
+              selectedOptions={[
                 { name: "Tip nekretnine" },
                 { name: "Stan" },
                 { name: "Kuća" },
@@ -39,21 +39,6 @@ export default function Pretraga() {
                 { name: "Zemljište" },
               ]}
             />
-            {/* <DropdownButton
-              classes={
-                " border-solid border-1 border-green-800 md:mr-3 mr-1 flex-col hover:bg-green-900 hover:text-white"
-              }
-              items={["Kupujem", "Zakupljujem"]}
-              title={"Kupujem / Zakupljujem"}
-            />
-
-            <DropdownButton
-              classes={
-                "border-solid border-1 border-green-800 md:mr-3 mr-1 flex-col hover:bg-green-900 hover:text-white"
-              }
-              items={["Stan", "Kuća", "Poslovni prostor", "Zemljište"]}
-              title={"Tip nekretnine"}
-            /> */}
             <button
               className={`${poppins.className} md:mr-3 mr-1 border-solid border-1 border-green-800 flex-col hover:bg-green-900 hover:text-white uppercase inline-flex justify-center gap-x-1.5 rounded-sm px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-green-800`}
             >

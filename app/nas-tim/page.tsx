@@ -1,5 +1,6 @@
 import AgentSvg from "@/components/svgComp/AgentSvg";
 import { getAllAgents } from "../_actions/read";
+import { typeAgent } from "../_actions/types";
 
 //const agenti = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
@@ -12,7 +13,7 @@ export default function NasTim() {
         <div className="text-center text-3xl pt-3 pb-2 ">Naš tim</div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3">
-          {agenti.map((item: any, index: number) => (
+          {agenti.map((item: typeAgent, index: number) => (
             <div
               key={item.id + index}
               className="m-4 border-2 border-zinc-500 shadow-md rounded-3xl  "

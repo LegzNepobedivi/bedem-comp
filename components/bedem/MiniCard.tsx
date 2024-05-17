@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { poppins } from "@/app/layout";
+import { typeStan } from "@/app/_actions/types";
 
 function formatCurrency(value: number | null | undefined): string {
   if (typeof value === "number") {
@@ -16,8 +17,8 @@ export default function MiniCard({
   stan,
   sourceUrl,
 }: {
-  stan: any;
-  sourceUrl: any;
+  stan: typeStan;
+  sourceUrl: string;
 }) {
   const priceFormatted =
     stan.price != 0 ? formatCurrency(stan.price) : "Cena na upit";

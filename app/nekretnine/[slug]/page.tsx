@@ -7,19 +7,6 @@ import { Poppins } from "next/font/google";
 import Predlozi from "@/components/bedem/Predlozi";
 import Link from "next/link";
 
-//import PrikazSvihStanova from "@/components/bedem/PrikazSvihStanova";
-
-//import {
-//Dialog,
-//DialogContent,
-//DialogDescription,
-//DialogHeader,
-//DialogPortal,
-//DialogTitle,
-//DialogTrigger,
-//} from "@/components/ui/dialog";
-//import { ArrowsPointingOutIcon } from "@heroicons/react/24/solid";
-
 const poppins = Poppins({
   weight: ["400", "500", "600"],
   subsets: ["latin"],
@@ -32,18 +19,23 @@ import {
   getAgentByStanId,
   getAllSlikeByStanId,
 } from "@/app/_actions/read";
+import { typeStan } from "@/app/_actions/types";
 
 //generate all the static paths/dynamic routes
 export async function generateStaticParams() {
   const stanovi = await getAllStanovi();
 
-  return stanovi.map((stan: any) => ({
+  return stanovi.map((stan: typeStan) => ({
     slug: String(stan.id),
   }));
 }
 
-export default async function PrikazNekretnine({ params }: { params: any }) {
-  const idStana = params?.slug;
+export default async function PrikazNekretnine({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const idStana = Number(params?.slug);
 
   const predlozi = await stanGetFirstOfNumber(5);
   const agent = await getAgentByStanId(idStana);

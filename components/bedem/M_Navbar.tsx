@@ -140,7 +140,7 @@ const M_Navbar = () => {
                             </div>
                             <div className="flex-auto">
                               <Link
-                                href={item.href}
+                                href={{ pathname: item.href }} // Modify the href prop to be of type UrlObject
                                 className="block font-semibold text-gray-900"
                                 onClick={close}
                               >
@@ -158,7 +158,7 @@ const M_Navbar = () => {
                         {callsToAction.map((item) => (
                           <Link
                             key={item.name}
-                            href={item.href}
+                            href={{ pathname: item.href }} // Modify the href prop to be of type UrlObject
                             className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
                             onClick={close}
                           >

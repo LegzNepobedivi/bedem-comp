@@ -4,8 +4,9 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
+import { typeSlika } from "@/app/_actions/types";
 
-function PrikazSvihStanova({ slike }: { slike: any }) {
+function PrikazSvihStanova({ slike }: { slike: Array<typeSlika> }) {
   const [indeks, setIndeks] = useState(0);
 
   function handleNapred() {
