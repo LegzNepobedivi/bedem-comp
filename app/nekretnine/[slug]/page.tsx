@@ -21,6 +21,8 @@ import {
 } from "@/app/_actions/read";
 import { typeStan } from "@/app/_actions/types";
 
+export const dynamicParams = false;
+
 //generate all the static paths/dynamic routes
 export async function generateStaticParams() {
   const stanovi = await getAllStanovi();

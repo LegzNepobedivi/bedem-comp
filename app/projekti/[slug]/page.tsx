@@ -11,6 +11,8 @@ import {
 } from "@/app/_actions/read";
 import { typeObjekat, typeStan } from "@/app/_actions/types";
 
+export const dynamicParams = false;
+
 export async function generateMetadata() {
   return {
     title: "Projekti",

@@ -1,32 +1,9 @@
-import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
 import React from "react";
 
 import { GlobalNav } from "@/components/adminpage/GlobalNav";
 import Byline from "@/components/adminpage/Byline";
 
-export const dynamic = "force-dynamic";
-
 const AdminLayout = async ({ children }: { children: React.ReactNode }) => {
-  const supabase = createClient();
-
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (error) {
-    console.log("Error in AdminLayout");
-    console.error(error);
-    return redirect("/login");
-  }
-
-  if (!user) {
-    console.log("User not foundddddddddddddddddddddddd");
-
-    return redirect("/login");
-  }
-
   return (
     <div className="[color-scheme:dark]">
       <div className="overflow-y-scroll bg-gray-1100  pb-36">
