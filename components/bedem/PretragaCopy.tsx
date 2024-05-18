@@ -2,7 +2,7 @@
 
 import { Poppins } from "next/font/google";
 import { useSearchParams, useRouter } from "next/navigation";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 
 import { UrlObject } from "url";
 import InputSearch from "./InputSearch";

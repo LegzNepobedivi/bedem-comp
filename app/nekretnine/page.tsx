@@ -10,6 +10,7 @@ import {
   getAgentByStanId,
 } from "../_actions/read";
 import { typeStan } from "../_actions/types";
+import SearchByCopilot from "@/components/bedem/SearchByCopilot";
 
 const sviStanovi = await getAllStanovi();
 
@@ -40,7 +41,8 @@ export default async function NekretninePage({
     <>
       <div className="bg-white z-10">
         <div className="container mx-auto">
-          <Pretraga />
+          <Pretraga placeholder="" />
+          <SearchByCopilot />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 container mx-auto">
           {prikazaniStanovi?.map(async (stan: typeStan) => {
