@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { UrlObject } from "url";
 import { Poppins } from "next/font/google";
+import { NewInput } from "./InputNew";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -45,17 +46,21 @@ const SearchByCopilot: React.FC = () => {
   return (
     <div className="bg-white">
       <div className="p-6 flex flex-col gap-2 border-solid border-green-600 ivanZelena focus:border-0">
-        <div className="py-3 gap-2 flex flex-col md:flex-row flex-wrap">
+        <NewInput />
+        <div className="py-2 gap-2 flex flex-col md:flex-row flex-wrap">
           <div className="">
-            <div className="border-solid border-1 border-green-800 md:mr-3 mr-1 flex-col hover:bg-green-900 hover:text-white">
+            <div className="">
               {/* <label htmlFor="transactionType">Transaction Type:</label> */}
               <select
                 id="transactionType"
-                className=""
+                className={`${poppins.className} bg-white border border-green-800 font-bold uppercase text-gray-900 text-sm 
+                 focus:ring-green-800 focus:border-green-800 block w-full p-2 
+                 dark:bg-gray-700 dark:border-gray-600  hover:text-white hover:bg-green-900
+                dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
                 value={transactionType}
                 onChange={handleTransactionTypeChange}
               >
-                <option className="" value="">
+                <option className="hover:bg-yellow-800" value="">
                   Kupujem/Zakupljujem
                 </option>
                 <option value="kupujem">Kupujem</option>
@@ -67,6 +72,10 @@ const SearchByCopilot: React.FC = () => {
             <select
               id="propertyType"
               value={propertyType}
+              className={`${poppins.className} bg-white border border-green-800 font-bold uppercase text-gray-900 text-sm 
+                 focus:ring-green-800 focus:border-green-800 block w-full p-2
+                 dark:bg-gray-700 dark:border-gray-600  hover:text-white hover:bg-green-900
+                dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
               onChange={handlePropertyTypeChange}
             >
               <option value="">Tip nekretnine</option>
@@ -77,10 +86,10 @@ const SearchByCopilot: React.FC = () => {
             </select>
           </div>
           <button
-            className={`${poppins.className} md:mr-3 mr-1 border-solid border-1 border-green-800 flex-col hover:bg-green-900 hover:text-white uppercase inline-flex justify-center gap-x-1.5 rounded-sm px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-green-800`}
+            className={`${poppins.className} md:mr-3 border-solid border-1 border-green-800 flex-col hover:bg-green-900 hover:text-white uppercase inline-flex justify-center gap-x-1.5 rounded-sm px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-green-800`}
             onClick={handleSearch}
           >
-            Search
+            Traži
           </button>
         </div>
       </div>

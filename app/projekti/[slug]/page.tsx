@@ -37,6 +37,14 @@ export async function generateStaticParams() {
 async function ProjekatJedan({ params }: { params: { slug: string } }) {
   const idProjekta = Number(params?.slug);
 
+  if (isNaN(idProjekta)) {
+    notFound();
+  }
+
+  if (!(idProjekta > 0 && idProjekta < 1000)) {
+    notFound();
+  }
+
   const projekat = await getProjekatById(idProjekta);
 
   if (projekat.length === 0) {

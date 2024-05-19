@@ -21,7 +21,7 @@ const M_Footer = () => {
   return (
     <div className={isAdminRoute ? "hidden" : ""}>
       <ONama />
-      <footer className={`${poppins.className} bg-white ivanSiva p-4`}>
+      <footer className={`${poppins.className} bg-white ivanSiva p-2 md:p-4`}>
         <div className="grid grid-cols-2 justify-between items-center">
           {/* Poslovni podaci */}
           <div className="md:text-sm text-xs text-center flex flex-col gap-2 border-r border-gray-400">

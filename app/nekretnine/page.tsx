@@ -1,5 +1,4 @@
 import Kartica from "@/components/bedem/Kartica";
-import Pretraga from "@/components/bedem/Pretraga";
 import Paginacija from "@/components/bedem/Paginacija";
 
 import { notFound } from "next/navigation";
@@ -12,12 +11,6 @@ import {
 import { typeStan } from "../_actions/types";
 import SearchByCopilot from "@/components/bedem/SearchByCopilot";
 
-const sviStanovi = await getAllStanovi();
-
-if (sviStanovi.length === 0) {
-  notFound();
-}
-
 export default async function NekretninePage({
   // params,
   searchParams,
@@ -25,6 +18,12 @@ export default async function NekretninePage({
   //params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  const sviStanovi = await getAllStanovi();
+
+  if (sviStanovi.length === 0) {
+    notFound();
+  }
+
   const page = searchParams["page"] ?? "1";
   const per_page = searchParams["per_page"] ?? "12";
 
@@ -41,7 +40,6 @@ export default async function NekretninePage({
     <>
       <div className="bg-white z-10">
         <div className="container mx-auto">
-          <Pretraga placeholder="" />
           <SearchByCopilot />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 container mx-auto">

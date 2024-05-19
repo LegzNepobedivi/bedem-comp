@@ -2,10 +2,11 @@ import LeftArrowSvg from "@/components/svgComp/LeftArrowSvg";
 import PhoneSvg from "@/components/svgComp/PhoneSvg";
 import AgentSvg from "@/components/svgComp/AgentSvg";
 import { SwipeCarousel } from "@/components/foreign/SwipeCarousel";
+import Predlozi from "@/components/bedem/Predlozi";
 
 import { Poppins } from "next/font/google";
-import Predlozi from "@/components/bedem/Predlozi";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -38,6 +39,14 @@ export default async function PrikazNekretnine({
   params: { slug: string };
 }) {
   const idStana = Number(params?.slug);
+
+  if (isNaN(idStana)) {
+    notFound();
+  }
+
+  if (!(idStana > 0 && idStana < 1000)) {
+    notFound();
+  }
 
   const predlozi = await stanGetFirstOfNumber(5);
   const agent = await getAgentByStanId(idStana);
