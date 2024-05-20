@@ -19,6 +19,8 @@ const SearchByCopilot: React.FC = () => {
   const [transactionType, setTransactionType] = useState("");
   const [propertyType, setPropertyType] = useState("");
 
+  const searchByName = React.createRef<HTMLInputElement>();
+
   const navigate = (url: Route) => {
     // @ts-expect-error: Ignoring this line for TypeScript errors
     router.push(url.url);
@@ -38,7 +40,7 @@ const SearchByCopilot: React.FC = () => {
 
   const handleSearch = () => {
     navigate({
-      url: `/nekretnine?transaction_type=${transactionType}&property_type=${propertyType}`,
+      url: `/nekretnine?transaction_type=${transactionType}&property_type=${propertyType}&searchByName=${searchByName.current?.value}`,
       pathname: "nekretnine",
     });
   };
@@ -46,7 +48,7 @@ const SearchByCopilot: React.FC = () => {
   return (
     <div className="bg-white">
       <div className="p-6 flex flex-col gap-2 border-solid border-green-600 ivanZelena focus:border-0">
-        <NewInput />
+        <NewInput ref={searchByName} />
         <div className="py-2 gap-2 flex flex-col md:flex-row flex-wrap">
           <div className="">
             <div className="">
@@ -60,7 +62,7 @@ const SearchByCopilot: React.FC = () => {
                 value={transactionType}
                 onChange={handleTransactionTypeChange}
               >
-                <option className="hover:bg-yellow-800" value="">
+                <option className="hover:bg-yellow-800" value="default">
                   Kupujem/Zakupljujem
                 </option>
                 <option value="kupujem">Kupujem</option>
@@ -78,7 +80,7 @@ const SearchByCopilot: React.FC = () => {
                 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
               onChange={handlePropertyTypeChange}
             >
-              <option value="">Tip nekretnine</option>
+              <option value="default">Tip nekretnine</option>
               <option value="stan">Stan</option>
               <option value="kuca">Kuća</option>
               <option value="poslProstor">Poslovni prostor</option>

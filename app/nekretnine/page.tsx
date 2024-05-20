@@ -7,6 +7,7 @@ import {
   getAllStanovi,
   getFirstSlikaByStanId,
   getAgentByStanId,
+  pretragaGetAllStanovi,
 } from "../_actions/read";
 import { typeStan } from "../_actions/types";
 import SearchByCopilot from "@/components/bedem/SearchByCopilot";
@@ -18,7 +19,17 @@ export default async function NekretninePage({
   //params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  const transaction_type = searchParams["transaction_type"] ?? "default";
+  const property_type = searchParams["property_type"] ?? "default";
+  const searchByName = searchParams["searchByName"] ?? "";
+
   const sviStanovi = await getAllStanovi();
+
+  const sviStanoviFiltered = await pretragaGetAllStanovi(
+    searchByName,
+    transaction_type,
+    property_type
+  );
 
   if (sviStanovi.length === 0) {
     notFound();
