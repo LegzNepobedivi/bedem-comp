@@ -7,7 +7,7 @@ function formatCurrency(value: number | null | undefined): string {
   if (typeof value === "number") {
     return value.toLocaleString("en-US", {
       style: "currency",
-      currency: "USD",
+      currency: "EUR",
     });
   }
   return "Invalid value"; // Or handle the null/undefined case as needed

@@ -37,18 +37,6 @@ async function Predlozi({ stanovi }: { stanovi: Array<typeStan> }) {
             </CarouselItem>
           );
         })}
-        {/* <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-          <MiniCard />
-        </CarouselItem>
-        <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-          <MiniCard />
-        </CarouselItem>
-        <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-          <MiniCard />
-        </CarouselItem>
-        <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-          <MiniCard />
-        </CarouselItem> */}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />

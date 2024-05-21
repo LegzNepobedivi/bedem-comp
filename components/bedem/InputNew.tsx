@@ -7,7 +7,7 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const NewInput = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, onClick, ...props }, ref) => {
     return (
       <div className="w-full flex gap-2">
         <input
@@ -20,7 +20,9 @@ const NewInput = React.forwardRef<HTMLInputElement, InputProps>(
           placeholder="Država, Grad, Adresa"
           {...props}
         />
-        <Search1Svg classes="" />
+        <div onClick={onClick}>
+          <Search1Svg classes="" />
+        </div>
       </div>
     );
   }

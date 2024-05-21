@@ -3,11 +3,13 @@ export enum TypeStan {
   Kuca = "kuca",
   PoslovniProstor = "poslovni prostor",
   Zemljiste = "zemljiste",
+  Default = "default",
 }
 
 export enum TransactionType {
   Prodaja = "prodaja",
   Izdavanje = "izdavanje",
+  Default = "default",
 }
 
 export type typeAgent = {

@@ -1,16 +1,18 @@
+import { revalidatePath } from "next/cache";
+import { notFound } from "next/navigation"; // Add this import statement
+
 import Kartica from "@/components/bedem/Kartica";
 import Paginacija from "@/components/bedem/Paginacija";
 
-import { notFound } from "next/navigation";
-
 import {
-  getAllStanovi,
   getFirstSlikaByStanId,
   getAgentByStanId,
   pretragaGetAllStanovi,
 } from "../_actions/read";
 import { typeStan } from "../_actions/types";
 import SearchByCopilot from "@/components/bedem/SearchByCopilot";
+
+export const revalidate = 3600;
 
 export default async function NekretninePage({
   // params,
@@ -19,16 +21,18 @@ export default async function NekretninePage({
   //params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const transaction_type = searchParams["transaction_type"] ?? "default";
-  const property_type = searchParams["property_type"] ?? "default";
-  const searchByName = searchParams["searchByName"] ?? "";
+  const transaction_type = searchParams["transaction_type"] ?? "DEFAULT";
+  const property_type = Array.isArray(searchParams["property_type"])
+    ? searchParams["property_type"][0]
+    : searchParams["property_type"] ?? "DEFAULT";
+  const searchByName = Array.isArray(searchParams["searchByName"])
+    ? searchParams["searchByName"][0]
+    : searchParams["searchByName"] ?? "";
 
-  const sviStanovi = await getAllStanovi();
-
-  const sviStanoviFiltered = await pretragaGetAllStanovi(
+  const sviStanovi = await pretragaGetAllStanovi(
     searchByName,
-    transaction_type,
-    property_type
+    property_type == "" ? "DEFAULT" : property_type,
+    transaction_type == "" ? "DEFAULT" : transaction_type.toString() // Convert transaction_type to string
   );
 
   if (sviStanovi.length === 0) {
@@ -44,6 +48,7 @@ export default async function NekretninePage({
   const prikazaniStanovi = sviStanovi?.slice(start, end);
 
   if (prikazaniStanovi.length === 0) {
+    revalidatePath("/nekretnine", "page");
     notFound();
   }
 

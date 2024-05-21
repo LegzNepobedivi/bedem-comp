@@ -30,6 +30,17 @@ function Paginacija({
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const transaction_type = searchParams.get("transaction_type") ?? "DEFAULT";
+
+  const propertyType = searchParams.get("property_type");
+  const property_type = propertyType
+    ? Array.isArray(propertyType)
+      ? propertyType[0]
+      : propertyType
+    : "DEFAULT";
+
+  const searchByName = searchParams.get("searchByName") ?? "";
+
   const page = searchParams?.get("page") ?? "1";
   const per_page = searchParams?.get("per_page") ?? "12";
 
@@ -51,7 +62,7 @@ function Paginacija({
                   navigate({
                     url: `/nekretnine?page=${
                       parseInt(page) - 1
-                    }&per_page=${per_page}`,
+                    }&per_page=${per_page}&transaction_type=${transaction_type}&property_type=${property_type}&searchByName=${searchByName}`,
                     pathname: "/nekretnine",
                     query: { page: (parseInt(page) - 1).toString(), per_page },
                   });
@@ -66,7 +77,7 @@ function Paginacija({
               className=" bg-green-700 font-bold"
               onClick={() => {
                 navigate({
-                  url: `/nekretnine?page=${page}&per_page=${per_page}`,
+                  url: `/nekretnine?page=${page}&per_page=${per_page}&transaction_type=${transaction_type}&property_type=${property_type}&searchByName=${searchByName}`,
                   pathname: "/nekretnine",
                   query: { page, per_page },
                 });
@@ -85,7 +96,7 @@ function Paginacija({
                   navigate({
                     url: `/nekretnine?page=${
                       parseInt(page) + 1
-                    }&per_page=${per_page}`,
+                    }&per_page=${per_page}&transaction_type=${transaction_type}&property_type=${property_type}&searchByName=${searchByName}`,
                     pathname: "/nekretnine",
                     query: { page: (parseInt(page) + 1).toString(), per_page },
                   });

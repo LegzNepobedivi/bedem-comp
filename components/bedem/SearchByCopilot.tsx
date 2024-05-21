@@ -48,7 +48,7 @@ const SearchByCopilot: React.FC = () => {
   return (
     <div className="bg-white">
       <div className="p-6 flex flex-col gap-2 border-solid border-green-600 ivanZelena focus:border-0">
-        <NewInput ref={searchByName} />
+        <NewInput ref={searchByName} onClick={handleSearch} />
         <div className="py-2 gap-2 flex flex-col md:flex-row flex-wrap">
           <div className="">
             <div className="">
@@ -65,8 +65,8 @@ const SearchByCopilot: React.FC = () => {
                 <option className="hover:bg-yellow-800" value="default">
                   Kupujem/Zakupljujem
                 </option>
-                <option value="kupujem">Kupujem</option>
-                <option value="zakupljujem">Zakupljujem</option>
+                <option value="prodajem">Kupujem</option>
+                <option value="izdajem">Zakupljujem</option>
               </select>
             </div>
           </div>
