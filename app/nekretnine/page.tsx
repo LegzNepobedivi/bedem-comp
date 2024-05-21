@@ -12,7 +12,7 @@ import {
 import { typeStan } from "../_actions/types";
 import SearchByCopilot from "@/components/bedem/SearchByCopilot";
 
-export const revalidate = 3600;
+//export const revalidate = 3600;
 
 export default async function NekretninePage({
   // params,
