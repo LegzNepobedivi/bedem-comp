@@ -167,7 +167,7 @@ export default async function PrikazNekretnine({
               >
                 Id nekretnine
               </div>
-              <div className="text-black">123456</div>
+              <div className="text-black">{idStana}</div>
             </div>
             <div className="">
               <div
@@ -181,9 +181,9 @@ export default async function PrikazNekretnine({
               <div
                 className={`${poppins.className} ivanZlatna uppercase text-sm`}
               >
-                Sadržaj
+                Stanje
               </div>
-              <div className="text-black">Veš-mašina</div>
+              <div className="text-black">Nekretnina je u odličnom stanju</div>
             </div>
           </div>
         </div>

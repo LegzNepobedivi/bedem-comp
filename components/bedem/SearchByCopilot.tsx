@@ -88,7 +88,7 @@ const SearchByCopilot: React.FC = () => {
             </select>
           </div>
           <button
-            className={`${poppins.className} md:mr-3 border-solid border-1 border-green-800 flex-col hover:bg-green-900 hover:text-white uppercase inline-flex justify-center gap-x-1.5 rounded-sm px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-green-800`}
+            className={`${poppins.className} md:mr-3 border-solid border-1 border-green-800 flex-col hover:bg-green-900 hover:text-white uppercase inline-flex justify-center gap-x-1.5 px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-green-800`}
             onClick={handleSearch}
           >
             Traži
