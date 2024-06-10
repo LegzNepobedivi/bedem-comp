@@ -142,7 +142,7 @@ export default async function PrikazNekretnine({
       </div>
 
       <div className="mx-auto container md:w-3/4 lg:w-2/3  text-end">
-        <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-400"></hr>
+        <hr className="h-px my-4 bg-gray-200 border-0 "></hr>
         {/* <Dialog>
           <DialogTrigger className="text-black">
             <ArrowsPointingOutIcon className="w-4 h-4 mt-7 absolute" />

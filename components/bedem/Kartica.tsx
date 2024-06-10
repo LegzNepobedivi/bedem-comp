@@ -102,7 +102,7 @@ export default function Kartica({
           </div>
         </div>
       </div>
-      <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-400"></hr>
+      <hr className="h-px my-4 bg-gray-200 border-0 "></hr>
     </div>
   );
 }

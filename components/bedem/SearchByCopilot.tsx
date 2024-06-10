@@ -57,8 +57,8 @@ const SearchByCopilot: React.FC = () => {
                 id="transactionType"
                 className={`${poppins.className} bg-white border border-green-800 font-bold uppercase text-gray-900 text-sm 
                  focus:ring-green-800 focus:border-green-800 block w-full p-2 
-                 dark:bg-gray-700 dark:border-gray-600  hover:text-white hover:bg-green-900
-                dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+                   hover:text-white hover:bg-green-900
+                `}
                 value={transactionType}
                 onChange={handleTransactionTypeChange}
               >
@@ -76,8 +76,8 @@ const SearchByCopilot: React.FC = () => {
               value={propertyType}
               className={`${poppins.className} bg-white border border-green-800 font-bold uppercase text-gray-900 text-sm 
                  focus:ring-green-800 focus:border-green-800 block w-full p-2
-                 dark:bg-gray-700 dark:border-gray-600  hover:text-white hover:bg-green-900
-                dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
+                   hover:text-white hover:bg-green-900
+                `}
               onChange={handlePropertyTypeChange}
             >
               <option value="default">Tip nekretnine</option>
