@@ -11,12 +11,15 @@ export default function SkrozDole() {
     <div
       className={`${poppins.className} text-center text-sm py-2 bgIvanZelena font-extralight ivanSiva`}
     >
-      <Link href="/uslovi-koriscenja" className="hover:text-gray-400">
-        Uslovi korišćenja
-      </Link>
-      <Link href="/pravila-privatnosti" className="hover:text-gray-400">
-        Pravila o privatnosti
-      </Link>
+      <div className="">
+        <Link href="/uslovi-koriscenja" className="hover:text-gray-400">
+          Uslovi korišćenja
+        </Link>
+        <span> | </span>
+        <Link href="/pravila-privatnosti" className="hover:text-gray-400">
+          Pravila o privatnosti
+        </Link>
+      </div>
       <p>©2023-2024 Bedem Nekretnine | Sva prava zadržana</p>
     </div>
   );

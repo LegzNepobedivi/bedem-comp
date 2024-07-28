@@ -1,7 +1,7 @@
 import React from "react";
 import { DataTable } from "@/components/adminpage/payments/data-table";
 import { columns } from "@/components/adminpage/payments/columns";
-import { getAllStanovi } from "@/app/_actions/read";
+import { getAllStanovi } from "@/app/_actions/get";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 

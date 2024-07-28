@@ -8,7 +8,7 @@ import {
   getAllProjekti,
   getProjekatById,
   getAllObjectsByProjectId,
-} from "@/app/_actions/read";
+} from "@/app/_actions/get";
 import { typeObjekat, typeStan } from "@/app/_actions/types";
 
 export const dynamicParams = false;

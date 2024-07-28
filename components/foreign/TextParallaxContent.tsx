@@ -51,7 +51,7 @@ export const TextParallaxContentWhole = ({
   );
 };
 
-const IMG_PADDING = 1;
+const IMG_PADDING = 0;
 
 const TextParallaxContent = ({
   imgUrl,

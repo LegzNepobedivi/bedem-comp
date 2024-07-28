@@ -8,7 +8,7 @@ import {
   getFirstSlikaByStanId,
   getAgentByStanId,
   pretragaGetAllStanovi,
-} from "../_actions/read";
+} from "../_actions/get";
 import { typeStan } from "../_actions/types";
 import SearchByCopilot from "@/components/bedem/SearchByCopilot";
 

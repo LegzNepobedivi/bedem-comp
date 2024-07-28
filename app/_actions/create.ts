@@ -1,228 +1,206 @@
-"use server";
-
 import supabase from "@/lib/supabase";
+import { ApartmentType, TransactionType } from "./types";
 
-export async function createAgent(
+export async function create_agent(
+  n_description: string,
+  n_sort_num: number,
+  n_language_id: number,
+  n_license: string,
   n_mail: string,
   n_name: string,
   n_position: string,
   n_telephone: string
 ) {
-  const { data, error } = await supabase.rpc("agent_create", {
+  const { data, error } = await supabase.rpc("create_agent", {
+    n_description,
+    n_language_id,
+    n_license,
     n_mail,
     n_name,
     n_position,
+    n_sort_num,
     n_telephone,
   });
-
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
+  if (error) console.error(error);
+  else console.log(data);
 }
 
-export async function createSlika(
-  n_sorting_id: number,
-  n_stan_id: number,
-  n_token: string,
-  n_url: string
-) {
-  const { data, error } = await supabase.rpc("slika_create", {
-    n_sorting_id,
-    n_stan_id,
-    n_token,
-    n_url,
-  });
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
-}
-
-export async function connectAgentToStan(
-  agent_id_arg: number,
-  stan_id_arg: number
-) {
-  const { data, error } = await supabase.rpc("connect_agent_to_stan", {
-    agent_id_arg,
-    stan_id_arg,
-  });
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
-}
-
-export async function createProjekat(
-  n_description: string,
-  n_name: string,
-  n_sorting_id: number
-) {
-  const { data, error } = await supabase.rpc("projekat_create", {
-    n_description,
-    n_name,
-    n_sorting_id,
-  });
-  if (error) return error;
-  else {
-    return data;
-  }
-}
-
-export async function connectStanToObject(
-  stan_id_arg: number,
-  objekat_id_arg: number
-) {
-  const { data, error } = await supabase.rpc("connect_stan_to_object", {
-    objekat_id_arg,
-    stan_id_arg,
-  });
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
-}
-
-export async function createStanAndConnectToObject(
-  n_description: string,
-  n_floor: number,
-  n_numberofrooms: number,
-  n_others: string,
-  n_price: number,
-  n_size: number,
-  n_sorting_id: number,
+export async function create_apartment(
+  n_agent_id: number,
+  n_language_id: number,
   n_title: string,
-  n_transaction_type: string,
-  n_type: string,
-  n_ytlink: string,
-  objekat_id_arg: number
-) {
-  const { data, error } = await supabase.rpc(
-    "create_stan_and_connect_to_object",
-    {
-      n_description,
-      n_floor,
-      n_numberofrooms,
-      n_others,
-      n_price,
-      n_size,
-      n_sorting_id,
-      n_title,
-      n_transaction_type,
-      n_type,
-      n_ytlink,
-      objekat_id_arg,
-    }
-  );
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
-}
-
-export async function createStanAndConnectToObjectAndAgent(
-  agent_id_arg: number,
+  n_apartment_type: ApartmentType,
   n_description: string,
-  n_floor: number,
-  n_numberofrooms: number,
-  n_others: string[],
   n_price: number,
-  n_size: number,
-  n_sorting_id: number, // Add type annotation here
-  n_title: string,
-  n_transaction_type: string,
-  n_type: string,
-  n_ytlink: string,
-  objekat_id_arg: number
-) {
-  const { data, error } = await supabase.rpc(
-    "create_stan_and_connect_to_object_and_agent",
-    {
-      agent_id_arg,
-      n_description,
-      n_floor,
-      n_numberofrooms,
-      n_others,
-      n_price,
-      n_size,
-      n_sorting_id,
-      n_title,
-      n_transaction_type,
-      n_type,
-      n_ytlink,
-      objekat_id_arg,
-    }
-  );
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
-}
-
-export async function createStan(
-  n_description: string,
-  n_floor: number,
-  n_numberofrooms: number,
-  n_others: string[],
-  n_price: number,
+  n_floor: string,
+  n_heating: string,
+  n_balcony: boolean,
+  n_lift: boolean,
+  n_link_vr: string,
+  n_link_yt: string,
+  n_location: string,
+  n_new_fresh: boolean,
+  n_number_of_rooms: string,
   n_size: string,
-  n_sorting_id: number,
-  n_title: string,
-  n_transaction_type: string,
-  n_type: string,
-  n_ytlink: string
+  n_sold: boolean,
+  n_sort_num: number,
+  n_transaction_type: TransactionType
 ) {
-  const { data, error } = await supabase.rpc("stan_create", {
+  const { data, error } = await supabase.rpc("create_apartment", {
+    n_agent_id,
+    n_apartment_type,
+    n_balcony,
     n_description,
     n_floor,
-    n_numberofrooms,
-    n_others,
+    n_heating,
+    n_language_id,
+    n_lift,
+    n_link_vr,
+    n_link_yt,
+    n_location,
+    n_new_fresh,
+    n_number_of_rooms,
     n_price,
     n_size,
-    n_sorting_id,
+    n_sold,
+    n_sort_num,
     n_title,
     n_transaction_type,
-    n_type,
-    n_ytlink,
   });
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
+  if (error) console.error(error);
+  else return data;
 }
 
-export async function createObjekat(
+export async function create_apartment_and_connect_to_agent(
+  n_agent_id: number,
+  n_language_id: number,
+  n_title: string,
+  n_apartment_type: ApartmentType,
   n_description: string,
-  n_id: number,
-  n_name: string,
-  n_projekat_id: number,
-  n_sorting_id: number
+  n_price: number,
+  n_floor: string,
+  n_heating: string,
+  n_balcony: boolean,
+  n_lift: boolean,
+  n_link_vr: string,
+  n_link_yt: string,
+  n_location: string,
+  n_new_fresh: boolean,
+  n_number_of_rooms: string,
+  n_size: string,
+  n_sold: boolean,
+  n_sort_num: number,
+  n_transaction_type: TransactionType
 ) {
-  const { data, error } = await supabase.rpc("objekat_create", {
-    n_description,
-    n_id,
+  const { data, error } = await supabase.rpc(
+    "create_apartment_and_connect_to_agent",
+    {
+      n_agent_id,
+      n_apartment_type,
+      n_balcony,
+      n_description,
+      n_floor,
+      n_heating,
+      n_language_id,
+      n_lift,
+      n_link_vr,
+      n_link_yt,
+      n_location,
+      n_new_fresh,
+      n_number_of_rooms,
+      n_price,
+      n_size,
+      n_sold,
+      n_sort_num,
+      n_title,
+      n_transaction_type,
+    }
+  );
+  if (error) console.error(error);
+  else console.log(data);
+}
+
+export async function create_language(n_name: string) {
+  const { data, error } = await supabase.rpc("create_language", {
     n_name,
-    n_projekat_id,
-    n_sorting_id,
   });
-  if (error) {
-    console.log(error);
-    return [];
-  } else {
-    return data;
-  }
+  if (error) console.error(error);
+  else console.log(data);
+}
+
+export async function create_object_unit(
+  n_component_id: number,
+  n_description: string,
+  n_language_id: number,
+  n_name: string,
+  n_sort_num: number
+) {
+  const { data, error } = await supabase.rpc("create_object_unit", {
+    n_component_id,
+    n_description,
+    n_language_id,
+    n_name,
+    n_sort_num,
+  });
+  if (error) console.error(error);
+  else console.log(data);
+}
+
+export async function create_picture(n_sort_num: number, n_url: string) {
+  const { data, error } = await supabase.rpc("create_picture", {
+    n_sort_num,
+    n_url,
+  });
+  if (error) console.error(error);
+  else console.log(data);
+}
+
+export async function create_picture_and_connect_to_apartment(
+  n_apartment_id: number,
+  n_sort_num: number,
+  n_url: string
+) {
+  const { data, error } = await supabase.rpc(
+    "create_picture_and_connect_to_apartment",
+    {
+      n_apartment_id,
+      n_sort_num,
+      n_url,
+    }
+  );
+  if (error) console.error(error);
+  else console.log(data);
+}
+
+export async function create_picture_and_connect_to_component(
+  n_apartment_id: number,
+  n_sort_num: number,
+  n_url: string
+) {
+  const { data, error } = await supabase.rpc(
+    "create_picture_and_connect_to_apartment",
+    {
+      n_apartment_id,
+      n_sort_num,
+      n_url,
+    }
+  );
+  if (error) console.error(error);
+  else console.log(data);
+}
+
+export async function create_project(
+  n_description: string,
+  n_language_id: number,
+  n_name: string,
+  n_sort_num: number
+) {
+  const { data, error } = await supabase.rpc("create_project", {
+    n_description,
+    n_language_id,
+    n_name,
+    n_sort_num,
+  });
+  if (error) console.error(error);
+  else console.log(data);
 }

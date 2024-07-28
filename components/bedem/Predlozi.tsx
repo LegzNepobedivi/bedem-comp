@@ -1,5 +1,5 @@
 import MiniCard from "@/components/bedem/MiniCard";
-import { getFirstSlikaByStanId } from "@/app/_actions/read";
+import { getFirstSlikaByStanId } from "@/app/_actions/get";
 
 import React from "react";
 import Link from "next/link";

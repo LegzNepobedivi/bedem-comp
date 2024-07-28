@@ -11,7 +11,7 @@ import {
 
 import Image from "next/image";
 
-import { getAllStanByObjectId, getOnesByStanId } from "@/app/_actions/read";
+import { getAllStanByObjectId, getOnesByStanId } from "@/app/_actions/get";
 import { typeStan } from "@/app/_actions/types";
 
 async function Apartmani({ objectId }: { objectId: number }) {

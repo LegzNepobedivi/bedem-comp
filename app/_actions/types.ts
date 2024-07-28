@@ -1,8 +1,9 @@
-export enum TypeStan {
-  Stan = "stan",
-  Kuca = "kuca",
-  PoslovniProstor = "poslovni prostor",
-  Zemljiste = "zemljiste",
+export enum ApartmentType {
+  Flat = "flat",
+  House = "house",
+  BussinessSpace = "bussinessSpace",
+  Field = "field",
+  Apartment = "apartment",
   Default = "default",
 }
 
@@ -10,6 +11,10 @@ export enum TransactionType {
   Prodaja = "prodaja",
   Izdavanje = "izdavanje",
   Default = "default",
+}
+
+export enum ComponentType {
+  ObjectUnit = "ObjectUnit",
 }
 
 export type typeAgent = {
@@ -22,41 +27,80 @@ export type typeAgent = {
   license: string;
 };
 
-export type typeStan = {
+export type typeApartment = {
   id: number;
+  apartment_type: ApartmentType | null;
+  transaction_type: TransactionType | null;
   title: string;
-  description: string;
-  price: number;
-  type: TypeStan;
-  numberOfRooms: string;
-  size: string;
-  ytLink: string;
-  floor: string;
-  transaction_type: TransactionType;
-  others: string[];
-  prodato: boolean;
-  sorting_id: number;
-  location: string;
+  sort_num: number | null;
+  description: string | null;
+  floor: string | null;
+  heating: string | null;
+  linkVR: string | null;
+  linkYT: string | null;
+  location: string | null;
+  new_fresh: boolean | null;
+  number_of_rooms: string | null;
+  price: number | null;
+  size: string | null;
+  lift: boolean | null;
+  balcony: boolean | null;
+  sold: boolean;
+  language_id: number | null;
+  last_user_id: string | null;
+  updated_at: string | null;
 };
 
-export type typeProjekat = {
+export type typeComponent = {
+  id: number;
+  title: string | null;
+  component_type: ComponentType | null;
+  sort_num: number | null;
+  subtype_id: number | null;
+  language_id: number | null;
+  last_user_id: string | null;
+  updated_at: string;
+};
+
+export type typeExclusive = {
+  id: number;
+  language_id: number | null;
+  last_user_id: string | null;
+  title: string | null;
+  updated_at: string | null;
+};
+
+export type typeLanguage = {
+  id: number;
+  name: string | null;
+  updated_at: string;
+};
+
+export type typeObjectUnit = {
   id: number;
   name: string;
-  description: string;
-  sorting_id: number;
+  sort_num: number;
+  description: string | null;
+  component_id: number | null;
+  language_id: number | null;
+  last_user_id: string | null;
+  updated_at: string | null;
 };
 
-export type typeObjekat = {
+export type typePicture = {
   id: number;
+  url: string | null;
+  sort_num: number;
+  last_user_id: string | null;
+  updated_at: string | null;
+};
+
+export type typeProject = {
+  id: number;
+  description: string | null;
   name: string;
-  description: string;
-  projekat_id: number;
-  sorting_id: number;
-};
-
-export type typeSlika = {
-  id: number;
-  url: string;
-  sorting_id: number;
-  stan_id: number;
+  sort_num: number;
+  language_id: number | null;
+  last_user_id: string | null;
+  updated_at: string | null;
 };

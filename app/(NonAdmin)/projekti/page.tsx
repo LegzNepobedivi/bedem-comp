@@ -5,7 +5,7 @@ import ProjekatLevi from "@/components/bedem/ProjekatLevi";
 import ProjekatDesni from "@/components/bedem/ProjekatDesni";
 import { TextParallaxContentWhole } from "@/components/foreign/TextParallaxContent";
 
-import { getAllProjekti } from "../_actions/read";
+import { getAllProjekti } from "../_actions/get";
 import { typeProjekat } from "../_actions/types";
 
 async function Projekti() {

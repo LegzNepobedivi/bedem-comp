@@ -2,7 +2,7 @@ import Izdvajamo from "./Izdvajamo";
 import Predlozi from "./Predlozi";
 import { TextParallaxContentWhole } from "../foreign/TextParallaxContent";
 
-import { stanGetFirstOfNumber } from "@/app/_actions/read";
+import { stanGetFirstOfNumber } from "@/app/_actions/get";
 import SearchByCopilot from "./SearchByCopilot";
 
 export default async function Naslovna() {

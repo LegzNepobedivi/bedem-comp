@@ -6,7 +6,7 @@ import { poppins } from "@/app/layout";
 import {
   getFirstSlikaByStanId,
   thumbnailsProjectGetAllStanovi,
-} from "@/app/_actions/read";
+} from "@/app/_actions/get";
 import { typeProjekat } from "@/app/_actions/types";
 
 async function ProjekatDesni({ projekat }: { projekat: typeProjekat }) {
