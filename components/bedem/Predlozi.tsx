@@ -1,5 +1,5 @@
 import MiniCard from "@/components/bedem/MiniCard";
-import { getFirstSlikaByStanId } from "@/app/_actions/get";
+import { get_thumbnail_by_apartment_id } from "@/app/_actions/get";
 
 import React from "react";
 import Link from "next/link";
@@ -11,23 +11,26 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { typeStan } from "@/app/_actions/types";
+import { typeApartment } from "@/app/_actions/types";
 
-async function Predlozi({ stanovi }: { stanovi: Array<typeStan> }) {
+async function Predlozi({ apartments }: { apartments: Array<typeApartment> }) {
   return (
     <Carousel className="">
       <CarouselContent>
-        {stanovi.map(async (stan) => {
-          const firstSlika = await getFirstSlikaByStanId(stan.id);
+        {apartments.map(async (one_apartment) => {
+          const firstSlika = await get_thumbnail_by_apartment_id(
+            one_apartment.id
+          );
+          console.log(firstSlika);
 
           return (
             <CarouselItem
-              key={stan.id + stan.title}
+              key={one_apartment.id + one_apartment.title}
               className="md:basis-1/2 lg:basis-1/3"
             >
-              <Link href={`/nekretnine/${stan.id}`}>
+              <Link href={`/nekretnine/${one_apartment.id}`}>
                 <MiniCard
-                  stan={stan}
+                  stan={one_apartment}
                   sourceUrl={
                     (firstSlika[0] && firstSlika[0]?.url) ||
                     (firstSlika && "/images/slika1.jpg")

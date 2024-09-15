@@ -8,8 +8,11 @@ export async function connect_agent_to_apartment(
     n_agent_id,
     n_apartment_id,
   });
-  if (error) console.error(error);
-  else console.log(data);
+  if (error) {
+    console.error(error);
+    return false;
+  }
+  return data;
 }
 
 export async function connect_apartment_to_object_unit(
@@ -23,8 +26,11 @@ export async function connect_apartment_to_object_unit(
       n_object_id,
     }
   );
-  if (error) console.error(error);
-  else console.log(data);
+  if (error) {
+    console.error(error);
+    return false;
+  }
+  return data;
 }
 
 export async function connect_picture_to_apartment(
@@ -35,8 +41,11 @@ export async function connect_picture_to_apartment(
     n_apartment_id,
     n_picture_id,
   });
-  if (error) console.error(error);
-  else console.log(data);
+  if (error) {
+    console.error(error);
+    return false;
+  }
+  return data;
 }
 
 export async function connect_picture_to_component(
@@ -47,6 +56,9 @@ export async function connect_picture_to_component(
     n_component_id,
     n_picture_id,
   });
-  if (error) console.error(error);
-  else console.log(data);
+  if (error) {
+    console.error(error);
+    return false;
+  }
+  return data;
 }

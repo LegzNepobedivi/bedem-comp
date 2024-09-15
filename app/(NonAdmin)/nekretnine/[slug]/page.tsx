@@ -14,21 +14,21 @@ const poppins = Poppins({
 });
 
 import {
-  getAllStanovi,
-  getStanById,
-  stanGetFirstOfNumber,
-  getAgentByStanId,
-  getAllSlikeByStanId,
+  get_all_apartments,
+  get_apartment_by_id,
+  get_first_apartments,
+  get_agent_by_apartment_id,
+  get_pictures_by_apartment_id,
 } from "@/app/_actions/get";
-import { typeStan } from "@/app/_actions/types";
+import { typeApartment } from "@/app/_actions/types";
 
 export const dynamicParams = false;
 
 //generate all the static paths/dynamic routes
 export async function generateStaticParams() {
-  const stanovi = await getAllStanovi();
+  const stanovi = await get_all_apartments();
 
-  return stanovi.map((stan: typeStan) => ({
+  return stanovi.map((stan: typeApartment) => ({
     slug: String(stan.id),
   }));
 }
@@ -48,10 +48,10 @@ export default async function PrikazNekretnine({
     notFound();
   }
 
-  const predlozi = await stanGetFirstOfNumber(5);
-  const agent = await getAgentByStanId(idStana);
-  const slike = await getAllSlikeByStanId(idStana);
-  const stanDetails = await getStanById(idStana);
+  const predlozi = await get_first_apartments(5);
+  const agent = await get_agent_by_apartment_id(idStana);
+  const slike = await get_pictures_by_apartment_id(idStana);
+  const stanDetails = await get_apartment_by_id(idStana);
 
   const priceFormatted =
     stanDetails[0]?.price
@@ -204,7 +204,7 @@ export default async function PrikazNekretnine({
         <div className="ivanZelena">
           <p className="text-center text-4xl mb-3">Možda vam se svidi</p>
           <div className="container mx-auto">
-            <Predlozi stanovi={predlozi} />
+            <Predlozi apartments={predlozi} />
           </div>
         </div>
       </div>

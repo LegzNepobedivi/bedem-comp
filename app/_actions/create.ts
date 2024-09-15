@@ -1,5 +1,5 @@
 import supabase from "@/lib/supabase";
-import { ApartmentType, TransactionType } from "./types";
+import { PropertyType, TransactionType } from "./types";
 
 export async function create_agent(
   n_description: string,
@@ -29,7 +29,7 @@ export async function create_apartment(
   n_agent_id: number,
   n_language_id: number,
   n_title: string,
-  n_apartment_type: ApartmentType,
+  n_apartment_type: PropertyType,
   n_description: string,
   n_price: number,
   n_floor: string,
@@ -75,7 +75,7 @@ export async function create_apartment_and_connect_to_agent(
   n_agent_id: number,
   n_language_id: number,
   n_title: string,
-  n_apartment_type: ApartmentType,
+  n_apartment_type: PropertyType,
   n_description: string,
   n_price: number,
   n_floor: string,

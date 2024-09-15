@@ -45,7 +45,6 @@ function Paginacija({
   const per_page = searchParams?.get("per_page") ?? "12";
 
   const navigate = (url: Route) => {
-    // @ts-expect-error: Ignoring this line for TypeScript errors
     router.push(url.url);
   };
 

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { poppins } from "@/app/layout";
-import { typeStan } from "@/app/_actions/types";
+import { typeApartment } from "@/app/_actions/types";
 
 function formatCurrency(value: number | null | undefined): string {
   if (typeof value === "number") {
@@ -17,7 +17,7 @@ export default function MiniCard({
   stan,
   sourceUrl,
 }: {
-  stan: typeStan;
+  stan: typeApartment;
   sourceUrl: string;
 }) {
   const priceFormatted =

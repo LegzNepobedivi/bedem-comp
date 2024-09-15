@@ -1,12 +1,12 @@
 import Izdvajamo from "./Izdvajamo";
 import Predlozi from "./Predlozi";
-import { TextParallaxContentWhole } from "../foreign/TextParallaxContent";
+import { TextParallaxContentWhole } from "@/components/foreign/TextParallaxContent";
 
-import { stanGetFirstOfNumber } from "@/app/_actions/get";
+import { get_first_apartments } from "@/app/_actions/get";
 import SearchByCopilot from "./SearchByCopilot";
 
 export default async function Naslovna() {
-  const predlozi = await stanGetFirstOfNumber(5);
+  const predlozi = await get_first_apartments(5);
 
   return (
     <div className="bg-white">
@@ -27,7 +27,7 @@ export default async function Naslovna() {
       <Izdvajamo />
       <div className="container mx-auto py-3">
         <div className="container mx-auto">
-          <Predlozi stanovi={predlozi} />
+          <Predlozi apartments={predlozi} />
         </div>
       </div>
     </div>

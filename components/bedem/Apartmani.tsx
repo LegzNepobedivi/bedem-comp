@@ -11,11 +11,14 @@ import {
 
 import Image from "next/image";
 
-import { getAllStanByObjectId, getOnesByStanId } from "@/app/_actions/get";
-import { typeStan } from "@/app/_actions/types";
+import {
+  get_all_objects_by_component_id,
+  get_pictures_by_apartment_id,
+} from "@/app/_actions/get";
+import { typeApartment } from "@/app/_actions/types";
 
 async function Apartmani({ objectId }: { objectId: number }) {
-  const stanoviObjekta = await getAllStanByObjectId(objectId);
+  const stanoviObjekta = await get_all_objects_by_component_id(objectId);
 
   if (stanoviObjekta.length === 0) {
     return notFound();
@@ -26,8 +29,8 @@ async function Apartmani({ objectId }: { objectId: number }) {
       {stanoviObjekta && stanoviObjekta?.length > 0 && (
         <Carousel className="">
           <CarouselContent>
-            {stanoviObjekta?.map(async (stan: typeStan) => {
-              const slike2 = await getOnesByStanId(stan.id, 2);
+            {stanoviObjekta?.map(async (stan: typeApartment) => {
+              const slike2 = await get_pictures_by_apartment_id(stan.id);
 
               return (
                 <CarouselItem className="lg:basis-1/2" key={stan?.id}>

@@ -22,7 +22,6 @@ const SearchByCopilot: React.FC = () => {
   const searchByName = React.createRef<HTMLInputElement>();
 
   const navigate = (url: Route) => {
-    // @ts-expect-error: Ignoring this line for TypeScript errors
     router.push(url.url);
   };
 
@@ -65,8 +64,8 @@ const SearchByCopilot: React.FC = () => {
                 <option className="hover:bg-yellow-800" value="default">
                   Kupujem/Zakupljujem
                 </option>
-                <option value="prodajem">Kupujem</option>
-                <option value="izdajem">Zakupljujem</option>
+                <option value="selling">Kupujem</option>
+                <option value="renting">Zakupljujem</option>
               </select>
             </div>
           </div>
@@ -81,10 +80,10 @@ const SearchByCopilot: React.FC = () => {
               onChange={handlePropertyTypeChange}
             >
               <option value="default">Tip nekretnine</option>
-              <option value="stan">Stan</option>
-              <option value="kuca">Kuća</option>
-              <option value="poslProstor">Poslovni prostor</option>
-              <option value="zemljiste">Zemljište</option>
+              <option value="flat">Stan</option>
+              <option value="house">Kuća</option>
+              <option value="bussinessSpace">Poslovni prostor</option>
+              <option value="field">Zemljište</option>
             </select>
           </div>
           <button

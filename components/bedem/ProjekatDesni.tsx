@@ -4,7 +4,7 @@ import React from "react";
 import { poppins } from "@/app/layout";
 
 import {
-  getFirstSlikaByStanId,
+  get_thumbnail_by_apartment_id,
   thumbnailsProjectGetAllStanovi,
 } from "@/app/_actions/get";
 import { typeProjekat } from "@/app/_actions/types";

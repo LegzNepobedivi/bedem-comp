@@ -1,10 +1,10 @@
 import AgentSvg from "@/components/svgComp/AgentSvg";
-import { getAllAgents } from "../_actions/get";
-import { typeAgent } from "../_actions/types";
+import { get_all_agents } from "@/app/_actions/get";
+import { typeAgent } from "@/app/_actions/types";
 
 //const agenti = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
-const agenti = await getAllAgents();
+const agenti = await get_all_agents();
 
 export default function NasTim() {
   return (

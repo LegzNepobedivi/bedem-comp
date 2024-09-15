@@ -1,16 +1,16 @@
-export enum ApartmentType {
+export enum PropertyType {
   Flat = "flat",
   House = "house",
   BussinessSpace = "bussinessSpace",
   Field = "field",
   Apartment = "apartment",
-  Default = "default",
+  Default = "DEFAULT",
 }
 
 export enum TransactionType {
   Prodaja = "prodaja",
   Izdavanje = "izdavanje",
-  Default = "default",
+  Default = "DEFAULT",
 }
 
 export enum ComponentType {
@@ -29,7 +29,7 @@ export type typeAgent = {
 
 export type typeApartment = {
   id: number;
-  apartment_type: ApartmentType | null;
+  apartment_type: PropertyType | null;
   transaction_type: TransactionType | null;
   title: string;
   sort_num: number | null;
@@ -40,9 +40,9 @@ export type typeApartment = {
   linkYT: string | null;
   location: string | null;
   new_fresh: boolean | null;
-  number_of_rooms: string | null;
-  price: number | null;
-  size: string | null;
+  number_of_rooms: string;
+  price: number;
+  size: string;
   lift: boolean | null;
   balcony: boolean | null;
   sold: boolean;
@@ -89,7 +89,7 @@ export type typeObjectUnit = {
 
 export type typePicture = {
   id: number;
-  url: string | null;
+  url: string;
   sort_num: number;
   last_user_id: string | null;
   updated_at: string | null;

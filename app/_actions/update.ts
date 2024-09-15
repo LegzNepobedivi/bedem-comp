@@ -1,5 +1,5 @@
 import supabase from "@/lib/supabase";
-import { ApartmentType, TransactionType } from "./types";
+import { PropertyType, TransactionType } from "./types";
 
 export async function update_agent(
   n_agent_id: number,
@@ -31,7 +31,7 @@ export async function update_apartment(
   n_apartment_id: number,
   n_agent_id: number,
   n_language_id: number,
-  n_apartment_type: ApartmentType,
+  n_apartment_type: PropertyType,
   n_transaction_type: TransactionType,
   n_balcony: boolean,
   n_description: string,
